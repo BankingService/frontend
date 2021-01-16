@@ -2,7 +2,7 @@
 <app-userdashboard></app-userdashboard>
 <h3 style="text-align: center;width:100%;">Initiate RTGS Transaction</h3>
 <div class=frm>
-    <form [formGroup]="form1" (ngSubmit)="transactionrequest(form1)">
+    <form [formGroup]="form" (ngSubmit)="transactionrequest(form)">
 
         <div class=input>
             <div id=selector>
@@ -13,29 +13,41 @@
                     <option>-Select-</option>
                     <option *ngFor="let account of fromAccountNo" value="{{account}}">{{account}}</option>
                 </select>
-                <div *ngIf="form1.get('fromAccount').touched && form1.get('fromAccount').invalid "
-                    class="alert alert-danger">
-                    <div *ngIf="form1.get('fromAccount').hasError('required')">Please Select Account No</div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.fromAccount">
+                        <div class="error-message"
+                            *ngIf="form.get('fromAccount').hasError(error.type) && (form.get('fromAccount').dirty || form.get('fromAccount').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
                 </div>
 
 
             </div>
         </div>
-        <div class=input>
-            <div id=selector>
-                To Account:
-            </div>
-            <div>
-                <select id="toAccount" class="form-control" formControlName="toAccount">
-                    <option>-Select-</option>
-                    <option *ngFor="let account of toAccountNo[0]" value="{{account.beneficiaryAccountNumber}}">{{account.beneficiaryAccountNumber}}</option>
-                </select>
-
-                <div *ngIf="form1.get('toAccount').touched && form1.get('toAccount').invalid" class="alert alert-danger">
-                    <div *ngIf="form1.get('toAccount').hasError('required')">Please Select Account No or add beneficiary</div>
-
+        <div>
+            <div class=input>
+                <div id=selector>
+                    To Account:
                 </div>
-                <button><a href="#" routerLink="/addBeneficiary">Add Beneficiary</a></button>
+                <div>
+                    <select id="toAccount" class="form-control" formControlName="toAccount">
+                        <option>-Select-</option>
+                        <option *ngFor="let account of toAccountNo[0]" value="{{account.beneficiaryAccountNumber}}">
+                            {{account.beneficiaryAccountNumber}}</option>
+                        <!-- <option *ngFor="let account of toAccountNo" value="{{account}}">{{account}}</option> -->
+                    </select>
+
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.toAccount">
+                            <div class="error-message"
+                                *ngIf="form.get('toAccount').hasError(error.type) && (form.get('toAccount').dirty || form.get('toAccount').touched)">
+                                {{ error.message }}
+                            </div>
+                        </ng-container>
+                    </div>
+                    <button><a href="#" routerLink="/addBeneficiary">Add Beneficiary</a></button>
+                </div>
             </div>
         </div>
         <div class=input>
@@ -43,14 +55,19 @@
                 Amount:
             </div>
             <div>
-                <input type="password" id="amount" class="form-control" formControlName="amount">
-                <div *ngIf="form1.get('amount').touched && form1.get('amount').invalid" class="alert alert-danger">
-                    <div *ngIf="form1.get('amount').hasError('required')">Please Enter Amount</div>
-                    <div *ngIf="form1.get('amount').hasError('pattern')">Invalid Amount</div>
+                <input type="text" id="amount" class="form-control" formControlName="amount">
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.amount">
+                        <div class="error-message"
+                            *ngIf="form.get('amount').hasError(error.type) && (form.get('amount').dirty || form.get('amount').touched)">
+                            {{ error.message }}
+
+                        </div>
+                    </ng-container>
                 </div>
             </div>
         </div>
-    
+
 
         <div class=input>
             <div id=selector>
@@ -60,9 +77,17 @@
                 <input type="text" id="Remark" class="form-control" formControlName="remark">
             </div>
         </div>
+        <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.remark">
+                <div class="error-message"
+                    *ngIf="form.get('remark').hasError(error.type) && (form.get('remark').dirty || form.get('remark').touched)">
+                    {{ error.message }}
 
+                </div>
+            </ng-container>
+        </div>
         <div class=input>
-            <a href="#" routerLink="/fundtransfer">Back</a>
+            <a routerLink="/fundtransfer">Back</a>
             <input type="button" (click)="setFlag()" value="continue">
         </div>
 
@@ -73,11 +98,16 @@
             </div>
             <div>
                 <div>
-                    <input type="text" id="transactionPwd" class="form-control" formControlName="transactionPwd">
+                    <input type="password" id="transactionPwd" class="form-control" formControlName="transactionPwd">
                 </div>
-                <div *ngIf="form1.get('transactionPwd').touched && form1.get('transactionPwd').invalid"
-                    class="alert alert-danger">
-                    Enter Transaction Password
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.transactionPwd">
+                        <div class="error-message"
+                            *ngIf="form.get('transactionPwd').hasError(error.type) && (form.get('transactionPwd').dirty || form.get('transactionPwd').touched)">
+                            {{ error.message }}
+
+                        </div>
+                    </ng-container>
                 </div>
             </div>
 
@@ -86,8 +116,14 @@
             </div>
             <div>
                 <input type="text" id="otp" class="form-control" formControlName="otp">
-                <div *ngIf="form1.get('otp').touched && form1.get('otp').invalid" class="alert alert-danger">
-                    Enter OTP
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.otp">
+                        <div class="error-message"
+                            *ngIf="form.get('otp').hasError(error.type) && (form.get('otp').dirty || form.get('otp').touched)">
+                            {{ error.message }}
+
+                        </div>
+                    </ng-container>
                 </div>
             </div>
         </div>

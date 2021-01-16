@@ -11,10 +11,10 @@
 
     <div class="input" *ngFor="let detail of details | keyvalue">
         <div id="selector" style="font-family: Arial, Helvetica, sans-serif; font-size: 2vh;">
-           
+           {{detail.key}}
         </div>
         <div style="font-family: Arial, Helvetica, sans-serif; font-size: 2vh;">
-            hello
+            {{detail.value}}
         </div>
     </div>
     <div class="form-group row" class="text-center">

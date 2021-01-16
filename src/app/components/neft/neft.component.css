@@ -10,6 +10,9 @@
     padding:15px;
     
 }
+.error-message {
+    color: red;
+  }
 
 #selector {
     width:35vh;
