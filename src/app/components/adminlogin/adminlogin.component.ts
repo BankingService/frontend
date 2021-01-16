@@ -16,7 +16,10 @@ export class AdminloginComponent implements OnInit {
   error_messages = {
 
     'adminId': [
-      { type: 'required', message: 'Admin Id is required.' }
+      { type: 'required', message: 'Admin Id is required.' },
+      { type: 'minlength', message: 'Password length too small' },
+      { type: 'maxlength', message: 'Exceeds password length limit' },
+      { type: 'pattern', message: 'Password must consist of only numbers'}
     ],
 
 
@@ -38,7 +41,8 @@ export class AdminloginComponent implements OnInit {
       adminId: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(8)
+        Validators.maxLength(8),
+        Validators.pattern('^[0-9]*$')
 
       ])),
 

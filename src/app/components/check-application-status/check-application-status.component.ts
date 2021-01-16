@@ -16,6 +16,9 @@ export class CheckApplicationStatusComponent implements OnInit {
   error_messages = {
     'refId': [
       { type: 'required', message: 'Reference ID is required' },
+      { type: 'minlength', message: 'minimum length not satisfied' },
+      { type: 'maxlength', message: ' exceeds limit' },
+      { type: 'pattern', message: 'referenceId is not in valid format(use only number)' }
     ]
   }
   constructor(public formBuilder: FormBuilder, private service: AdminServiceService) { }
@@ -25,7 +28,9 @@ export class CheckApplicationStatusComponent implements OnInit {
     this.form = this.formBuilder.group({
       refId: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.maxLength(5)
+        Validators.minLength(3),
+        Validators.maxLength(5),
+        Validators.pattern('^[0-9]*$') 
       ]))
     },
     );
