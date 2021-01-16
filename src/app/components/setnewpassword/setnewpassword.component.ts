@@ -13,40 +13,43 @@ import { SetNewPasswordBeforeLoginComponent } from '../set-new-password-before-l
 })
 export class SetnewpasswordComponent implements OnInit {
 
-  form:FormGroup;
-  loginPassword:String
-  transactionPassword:String
+  form: FormGroup;
+  loginPassword: String
+  transactionPassword: String
+
   error_messages = {
     'loginpassword': [
       { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password length too small' },
-      { type: 'maxlength', message: 'Exceeds password length limit' },
-      { type: 'pattern', message: 'Password must consist one special character,one alphabet and one numeric' }
-    ],
-    'transactionpassword': [
-      { type: 'required', message: 'Password is required.' },
+      { type: 'compare', message: 'password not matched' },
       { type: 'minlength', message: 'Password length too small' },
       { type: 'maxlength', message: 'Exceeds password length limit' },
       { type: 'pattern', message: 'Password must consist one special character,one alphabet and one numeric' }
     ],
     'confloginpassword': [
       { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password length too small' },
       { type: 'compare', message: 'password not matched' },
+      { type: 'minlength', message: 'Password length too small' },
+      { type: 'maxlength', message: 'Exceeds password length limit' },
+      { type: 'pattern', message: 'Password must consist one special character,one alphabet and one numeric' }
+    ],
+    'transactionpassword': [
+      { type: 'required', message: 'Password is required.' },
+      { type: 'compare', message: 'password not matched' },
+      { type: 'minlength', message: 'Password length too small' },
       { type: 'maxlength', message: 'Exceeds password length limit' },
       { type: 'pattern', message: 'Password must consist one special character,one alphabet and one numeric' }
     ],
     'conftransactionpassword': [
       { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password length too small' },
       { type: 'compare', message: 'password not matched' },
+      { type: 'minlength', message: 'Password length too small' },
       { type: 'maxlength', message: 'Exceeds password length limit' },
       { type: 'pattern', message: 'Password must consist one special character,one alphabet and one numeric' }
     ],
 
   }
 
-  constructor(private http:UserService,private router:Router) { }
+  constructor(private http: UserService, private router: Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -76,24 +79,24 @@ export class SetnewpasswordComponent implements OnInit {
         Validators.minLength(6),
         Validators.maxLength(15),
         Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}'),
-        RxwebValidators.compare({ fieldName: ' transactionpassword' })
+        RxwebValidators.compare({ fieldName: 'transactionpassword' })
       ]))
 
-   });
+    });
   }
 
-  customerId=sessionStorage.customerId
- setNewPass:SetNewPassword
-  passwordChange(form){
+  customerId = sessionStorage.customerId
+  setNewPass: SetNewPassword
+  passwordChange(form) {
 
-    this.setNewPass = new SetNewPassword(this.customerId,form.value.confloginpassword,form.value.conftransactionpassword)
+    this.setNewPass = new SetNewPassword(this.customerId, form.value.confloginpassword, form.value.conftransactionpassword)
 
-    this.http.setNewPasswords(this.setNewPass).subscribe(response=>{
-      if(response.status=='SUCCESS'){
+    this.http.setNewPasswords(this.setNewPass).subscribe(response => {
+      if (response.status == 'SUCCESS') {
         alert(response.message)
         this.router.navigate(['accountsummary']);
       }
-      else{
+      else {
         alert(response.message)
       }
     })
