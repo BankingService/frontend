@@ -16,35 +16,38 @@ export class SetnewpasswordComponent implements OnInit {
   form:FormGroup;
   loginPassword:String
   transactionPassword:String
+
   error_messages = {
     'loginpassword': [
       { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password length too small' },
-      { type: 'maxlength', message: 'Exceeds password length limit' },
-      { type: 'pattern', message: 'Password must consist one special character,one alphabet and one numeric' }
+      { type: 'compare', message: 'password not matched' },
+        { type: 'minlength', message: 'Password length too small' },
+        { type: 'maxlength', message: 'Exceeds password length limit' },
+        { type: 'pattern', message:'Password must consist one special character,one alphabet and one numeric'}
+    ],
+    'confloginpassword': [
+        { type: 'required', message: 'Password is required.' },
+        { type: 'compare', message: 'password not matched' },
+        { type: 'minlength', message: 'Password length too small' },
+        { type: 'maxlength', message: 'Exceeds password length limit' },
+        { type: 'pattern', message:'Password must consist one special character,one alphabet and one numeric'}
     ],
     'transactionpassword': [
       { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password length too small' },
-      { type: 'maxlength', message: 'Exceeds password length limit' },
-      { type: 'pattern', message: 'Password must consist one special character,one alphabet and one numeric' }
-    ],
-    'confloginpassword': [
-      { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password length too small' },
       { type: 'compare', message: 'password not matched' },
-      { type: 'maxlength', message: 'Exceeds password length limit' },
-      { type: 'pattern', message: 'Password must consist one special character,one alphabet and one numeric' }
+        { type: 'minlength', message: 'Password length too small' },
+        { type: 'maxlength', message: 'Exceeds password length limit' },
+        { type: 'pattern', message:'Password must consist one special character,one alphabet and one numeric'}
     ],
     'conftransactionpassword': [
-      { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password length too small' },
-      { type: 'compare', message: 'password not matched' },
-      { type: 'maxlength', message: 'Exceeds password length limit' },
-      { type: 'pattern', message: 'Password must consist one special character,one alphabet and one numeric' }
+        { type: 'required', message: 'Password is required.' },
+        { type: 'compare', message: 'password not matched' },
+        { type: 'minlength', message: 'Password length too small' },
+        { type: 'maxlength', message: 'Exceeds password length limit' },
+        { type: 'pattern', message:'Password must consist one special character,one alphabet and one numeric'}
     ],
-
-  }
+    
+  }  
 
   constructor(private http:UserService,private router:Router) { }
 
