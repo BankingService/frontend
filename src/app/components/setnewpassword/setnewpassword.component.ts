@@ -76,7 +76,7 @@ export class SetnewpasswordComponent implements OnInit {
         Validators.minLength(6),
         Validators.maxLength(15),
         Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}'),
-        RxwebValidators.compare({ fieldName: ' transactionpassword' })
+        RxwebValidators.compare({ fieldName: 'transactionpassword' })
       ]))
 
    });
