@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { SetNewPassword } from 'src/app/dtoClass/set-new-password';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -83,12 +84,12 @@ export class SetNewPasswordBeforeLoginComponent implements OnInit {
 
     });
   }
-
-  setPasswords(form) {
-    this.loginPassword = form.value.confloginpassword
-    this.transactionPassword = form.value.conftransactionpassword
-    this.http.setNewPasswords(this.customerId, this.loginPassword, this.transactionPassword).subscribe(response => {
-      if (response.status == 'SUCCESS') {
+  setnewpass:SetNewPassword
+  setPasswords(form){
+    this.setnewpass=new SetNewPassword( this.customerId,form.value.confloginpassword, form.value.conftransactionpassword) 
+      
+    this.http.setNewPasswords(this.setnewpass).subscribe(response=>{
+      if(response.status=='SUCCESS'){
         alert(response.message)
         localStorage.clear();
         this.router.navigate(['login']);

@@ -2,14 +2,15 @@
        
   margin-top:10px;
       
-  margin-left:60px;
+    margin-left:60px;
  
  }
- .wrapper
+ .container
  {
      display: flex;
-     justify-content: center;
-    margin-top: 20px;
+     
+ justify-content: center;
+ margin-top: 20px;
  
  }  
  .card{
@@ -20,16 +21,13 @@
   
     text-align: left;
    
-   background-color: #d8d8dae0;
+   
  
  }
  .error-message {
   color: red;
-  margin-left:250px;
+  margin-left: 220px;
 }
 input.ng-touched.ng-invalid {
   border: 1px solid red;
-}
-.getotp{
-  margin-left: 350px;
 }
