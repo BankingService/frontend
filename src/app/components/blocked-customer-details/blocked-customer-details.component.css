@@ -3,3 +3,19 @@
     border-style: groove;
     width: 100vh;
 }
+table{
+    /* background-color: #42c5f8; */
+    color: black;
+    text-align:center;
+} 
+th{
+    
+    padding:10vh;
+    border-bottom: 1px solid black;
+    
+}
+td{
+
+    border-bottom: 1px solid black;
+    
+  }

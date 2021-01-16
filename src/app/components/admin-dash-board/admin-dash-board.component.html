@@ -3,9 +3,9 @@
 
 <div class="cardz">
 
-  <h3 class="w3-left">{{message}}</h3><br><br>
-  <h3 class="w3-left">Welcome {{adminName}}</h3>
-  <h2 style="text-align: center;width:100%;">Account Opening Requests</h2>
+  <!-- <h3 class="w3-left">{{message}}</h3>--><br>
+  <h2 class="w3-left">Welcome {{adminName | titlecase}}</h2><br><br>
+  <h4 style="text-align: center;width:100%;">Account Opening Requests</h4>
   <br>
   <div>
     <table class="table table-bordered table-striped">
@@ -19,7 +19,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let cust of customers">
-          <td><span><button class="btn btn-link" (click)='viewdets(cust.referenceId)'>{{cust.referenceId}}</button></span></td>
+          <td><span><button class="btn btn-link" (click)='viewdets(cust.referenceId)'><b>{{cust.referenceId}}</b></button></span></td>
           <td><span>{{cust.customerId}}</span></td>
         </tr>
       </tbody>

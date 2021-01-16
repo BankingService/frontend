@@ -1,4 +1,4 @@
-ul {
+/* ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -18,11 +18,43 @@ ul {
     text-decoration: none;
   }
   
-  /* Change the link color to #111 (black) on hover */
+  
   li a:hover {
     background-color: #111;
     color: white;
   }
   .active {
     background-color: #3f82a1;
-  }
+  } */
+
+
+  .topnav {
+    padding-left: 20%;
+    background-color: #42c5f8;
+    overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+.topnav a:hover {
+  background-color: darkgrey;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: darkgrey;
+  color: white;
+}
+
+
+.topnav-right {
+  float: right;
+}
