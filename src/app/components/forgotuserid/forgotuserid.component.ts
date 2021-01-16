@@ -11,31 +11,35 @@ import { OtpserviceService } from 'src/app/services/otpservice.service';
 })
 export class ForgotuseridComponent implements OnInit {
 
-  
+
   loginForm: FormGroup;
   form: FormGroup;
-  otp : any;
-  
-  flag:boolean=false;
+  otp: any;
+
+  flag: boolean = false;
   error_messages = {
     'id': [
-      { type: 'required', message: 'Account Number is required.' },
+      { type: 'required', message: 'id is required.' },
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds' },
+      { type: 'pattern', message: 'id consists of only numbers' }
     ],
     'OTP': [
       { type: 'required', message: 'OTP is required.' },
-      { type: 'minlength', message: 'OTP length.' },
-      { type: 'maxlength', message: 'OTP length.' },
+      { type: 'minlength', message: 'OTP invalid length' },
+      { type: 'maxlength', message: 'OTP invalid length' },
+      { type: 'pattern', message: 'otp consists of only numbers' }
     ],
-    
+
   }
 
   constructor(
-    public formBuilder: FormBuilder,private router:Router, private service: OtpserviceService
-  //  private http: HttpClient,private router: Router,
-   // private service:ConnectionService
+    public formBuilder: FormBuilder, private router: Router, private service: OtpserviceService
+    //  private http: HttpClient,private router: Router,
+    // private service:ConnectionService
   ) {
-    
-      
+
+
   }
 
   ngOnInit() {
@@ -43,58 +47,63 @@ export class ForgotuseridComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       id: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.maxLength(10)
+        Validators.maxLength(8),
+        Validators.minLength(8),
+        Validators.pattern('[0-9]*')
+
       ])),
     },
     )
 
     this.form = this.formBuilder.group({
-         
+
       OTP: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(30),
-        
+        Validators.minLength(4),
+        Validators.maxLength(4),
+        Validators.pattern('[0-9]*')
+
       ])),
-    },);
-    
+    });
+
     // { 
     //   validators: this.password.bind(this)
     // });
 
-    this.router.routeReuseStrategy.shouldReuseRoute = () =>false;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   message: any;
-  customerId:any;
-  
-  getotp(id){
-    this.flag=true;
+  customerId: any;
+
+  getotp(id) {
+    this.flag = true;
     console.log(id);
-    
-    this.customerId=id;
-    
+
+    this.customerId = id;
+
     this.service.getOtpByAccountNumber(id).subscribe(response => {
       alert(response.message)
-      this.message = response.message;})
+      this.message = response.message;
+    })
   }
 
-  verifyotp(otp){
+  verifyotp(otp) {
     console.log(otp)
-    if(otp==this.message){
-        alert("verified");
-        this.service.verifyOtpByAccountNumber(this.customerId).subscribe(response=>{
-          alert(response.message)
-          this.message=response.message
-        })
-        this.router.navigate(['login']);
-      }
-      else{
-        alert("Invalid OTP")
-        this.router.navigated=false;
-        this.router.navigate(['forgotuserid']);
-      }
-    
+    if (otp == this.message) {
+      alert("verified");
+      this.service.verifyOtpByAccountNumber(this.customerId).subscribe(response => {
+        alert(response.message)
+        this.message = response.message
+      })
+      this.router.navigate(['login']);
+    }
+    else {
+      alert("Invalid OTP")
+      this.router.navigated = false;
+      this.router.navigate(['forgotuserid']);
+    }
+
   }
 
 

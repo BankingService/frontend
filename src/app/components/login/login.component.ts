@@ -15,7 +15,10 @@ export class LoginComponent implements OnInit {
 form: FormGroup;
 error_messages = {
   'customerId': [
-    {  type: 'required', message: 'User Id is required.' }
+    {  type: 'required', message: 'User Id is required.' },
+    { type: 'minlength', message: 'Password length too small' },
+      { type: 'maxlength', message: 'Exceeds password length limit' },
+      { type: 'pattern', message:'Password must consist only number'}
   ],
 
 
@@ -37,7 +40,8 @@ ngOnInit() {
     customerId: new FormControl('', Validators.compose([
       Validators.required,
       Validators.minLength(8),
-      Validators.maxLength(8)
+      Validators.maxLength(8),
+      Validators.pattern('^[0-9]*$')
       
     ])),
     

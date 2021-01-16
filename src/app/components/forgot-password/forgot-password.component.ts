@@ -19,12 +19,16 @@ export class ForgotPasswordComponent implements OnInit {
   flag:boolean=false;
   error_messages = {
     'id': [
-      { type: 'required', message: 'User Id is required.' },
+      { type: 'required', message: 'id is required.' },
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds' },
+      { type: 'pattern', message: 'id consists of only numbers' }
     ],
     'OTP': [
       { type: 'required', message: 'OTP is required.' },
-      { type: 'minlength', message: 'OTP length.' },
-      { type: 'maxlength', message: 'OTP length.' },
+      { type: 'minlength', message: 'OTP invalid length' },
+      { type: 'maxlength', message: 'OTP invalid length' },
+      { type: 'pattern', message: 'otp consists of only numbers' }
     ],
     
   }
@@ -43,7 +47,10 @@ export class ForgotPasswordComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       id: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.maxLength(6)
+        Validators.maxLength(8),
+        Validators.minLength(8),
+        Validators.pattern('[0-9]*')
+
       ])),
     },
     )
@@ -52,8 +59,9 @@ export class ForgotPasswordComponent implements OnInit {
          
       OTP: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(30),
+        Validators.minLength(4),
+        Validators.maxLength(4),
+        Validators.pattern('[0-9]*')
         
       ])),
     },);

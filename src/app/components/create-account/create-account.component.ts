@@ -35,24 +35,24 @@ export class CreateAccountComponent implements OnInit {
     ],
     'firstName': [
       { type: 'required', message: 'First Name is required.' },
-      { type: 'minlength', message: 'minimum length of 2 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' },
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' },
       { type: 'pattern', message: 'firstname is not in valid format(use only letters and spaces)' }
     ],
     'middleName':[
-      { type: 'minlength', message: 'minimum length of 1 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' }
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' }
     ],
     'lastName': [
       { type: 'required', message: 'Last Name is required.' },
-      { type: 'minlength', message: 'minimum length of 1 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' },
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' },
       { type: 'pattern', message: 'lastname is not in valid format(use only letters and spaces)' }
     ],
     'fatherName': [
       { type: 'required', message: 'Father Name is required.' },
-      { type: 'minlength', message: 'minimum length of 2 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' },
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' },
       { type: 'pattern', message: 'fathername is not in valid format(use only letters and spaces)' }
     ],
     'mobileNumber': [
@@ -63,8 +63,8 @@ export class CreateAccountComponent implements OnInit {
     ],
     'emailId': [
       { type: 'required', message: 'Email is required.' },
-      { type: 'minlength', message: 'minimum length of 5 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' },
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' },
       { type: 'pattern', message: 'Email is not in valid format' }
 
     ],
@@ -86,27 +86,27 @@ export class CreateAccountComponent implements OnInit {
 
     'cAddressLine1': [
       { type: 'required', message: 'Address is required.' },
-      { type: 'minlength', message: 'minimum length of 3 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' }
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' }
     ],
     'cAddressLine2': [
       { type: 'required', message: 'Address is required.' },
-      { type: 'minlength', message: 'minimum length of 3 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' }
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' }
     ],
     'cLandMark':[
-      { type: 'minlength', message: 'minimum length of 3 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' }
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' }
     ],
     'cState': [
       { type: 'required', message: 'State is required.' },
-      { type: 'minlength', message: 'minimum length of 3 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' }
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' }
     ],
     'cCity': [
       { type: 'required', message: 'City is required.' },
-      { type: 'minlength', message: 'minimum length of 3 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' }
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' }
     ],
     'cPincode': [
       { type: 'required', message: 'Pincode is required.' },
@@ -117,27 +117,27 @@ export class CreateAccountComponent implements OnInit {
 
     'pAddressLine1': [
       { type: 'required', message: 'Address is required.' },
-      { type: 'minlength', message: 'minimum length of 3 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' }
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' }
     ],
     'pAddressLine2': [
       { type: 'required', message: 'Address is required.' },
-      { type: 'minlength', message: 'minimum length of 3 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' }
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' }
     ],
     'pState': [
       { type: 'required', message: 'State is required.' },
-      { type: 'minlength', message: 'minimum length of 3 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' }
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' }
     ],
     'pLandMark':[
-      { type: 'minlength', message: 'minimum length of 3 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' }
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' }
     ],
     'pCity': [
       { type: 'required', message: 'City is required.' },
-      { type: 'minlength', message: 'minimum length of 3 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' }
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' }
     ],
     'pPincode': [
       { type: 'required', message: 'Pincode is required.' },
@@ -147,17 +147,17 @@ export class CreateAccountComponent implements OnInit {
     ],
     'occupationType':[
       { type: 'required', message: 'Pincode is required.' },
-      { type: 'minlength', message: 'minimum length of 3 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' }
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' }
     ],
     'sourceOfIncome':[
       { type: 'required', message: 'Pincode is required.' },
-      { type: 'minlength', message: 'minimum length of 3 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' }
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' }
     ],
     'grossAnnualIncome':[
-      { type: 'minlength', message: 'minimum length of 4 to 30 characters' },
-      { type: 'maxlength', message: 'characters allowed till 30 characters' },
+      { type: 'minlength', message: 'length too small' },
+      { type: 'maxlength', message: 'length exceeds limit' },
       { type: 'pattern', message: 'Income is not in valid format(use only number)' }
     ]
 

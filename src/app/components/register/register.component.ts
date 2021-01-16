@@ -6,7 +6,7 @@ import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { Register } from 'src/app/modelClass/register';
 import { UserService } from 'src/app/services/user.service';
 import { OtpserviceService } from 'src/app/services/otpservice.service';
-//import { RxwebValidators } from '@rxweb/reactive-form-validators';
+// import { RxwebValidators } from '@rxweb/reactive-form-validators';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -20,7 +20,9 @@ export class RegisterComponent implements OnInit {
   error_messages = {
     'customerId': [
       { type: 'required', message: 'Customer Id is required.' },
-    //  { type: 'required', message: 'Account Number must be of 8 digit' }
+      { type: 'minlength', message: 'password length must be atleast 8' },
+      { type: 'maxlength', message: 'password length must be less than 8' },
+      { type: 'pattern', message: 'password must consist only number'}
     ],
 
     // 'otp': [
@@ -29,35 +31,34 @@ export class RegisterComponent implements OnInit {
 
     'loginPassword': [
       { type: 'required', message: 'password is required.' },
-      { type: 'required', message: 'password length must be of 6 char' },
-      { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.' },
+      { type: 'minlength', message: 'password length must be atleast 6' },
+      { type: 'maxlength', message: 'password length must be less than 15' },
       { type: 'pattern', message: 'password must consist one special character,one alphabet and one numeric' }
     ],
     'confirmLoginPassword': [
-      { type: 'required', message: 'password not matched' },
-      { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.' },
+      { type: 'required', message: 'password required' },
+      { type: 'compare', message: 'password not matched' },
+      { type: 'minlength', message: 'password length must be atleast 6' },
+      { type: 'maxlength', message: 'password length must be less than 15' },
       { type: 'pattern', message: 'password must consist one special character,one alphabet and one numeric' }
     ],
     'transactionPassword': [
       { type: 'required', message: 'password is required' },
-      { type: 'required', message: 'password length must be of 4 char' },
-      { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.' },
+      { type: 'minlength', message: 'password length must be atleast 6' },
+      { type: 'maxlength', message: 'password length must be less than 15' },
       { type: 'pattern', message: 'password must consist one special character,one alphabet and one numeric' }
     ],
     'confirmTransactionPassword': [
-      { type: 'required', message: 'password not matched' },
-      { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.' },
+      { type: 'required', message: 'password required' },
+      { type: 'compare', message: 'password not matched' },
+      { type: 'minlength', message: 'password length must be atleast 6' },
+      { type: 'maxlength', message: 'password length must be less than 15' },
       { type: 'pattern', message: 'password must consist one special character,one alphabet and one numeric' }
     ],
     'profilePassword': [
       { type: 'required', message: 'password is required' },
-      { type: 'required', message: 'password length must be of 4 char' },
-      { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.' },
+      { type: 'minlength', message: 'password length must be atleast 6' },
+      { type: 'maxlength', message: 'password length must be less than 15' },
       { type: 'pattern', message: 'password must consist one special character,one alphabet and one numeric' }
     ],
     'confirmProfilePassword': [
@@ -74,13 +75,14 @@ export class RegisterComponent implements OnInit {
     ]
   }
 
-  constructor(public formBuilder: FormBuilder, private service:UserService, private router:Router, private otpservice:OtpserviceService) { }
+  constructor(public formBuilder: FormBuilder, private service: UserService, private router: Router, private otpservice: OtpserviceService) { }
   ngOnInit() {
     this.form = this.formBuilder.group({
       customerId: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(8),
+        Validators.pattern('^[0-9]*$')
         // Validators.pattern(/^-?(0|[1-9]\d*)?$/)
 
       ])),
@@ -94,119 +96,124 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
-        // Validators.pattern(/^-?(0|[1-9]\d*)?$/),
-        
+        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}'),
+
       ])),
 
       confirmLoginPassword: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
-        // Validators.pattern(/^-?(0|[1-9]\d*)?$/),
-        RegisterComponent.matchValues('loginPassword'),
+        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}'),
+        // RegisterComponent.matchValues('loginPassword'),
+        RxwebValidators.compare({ fieldName: 'loginPassword' })
       ])),
 
       transactionPassword: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
-        // Validators.pattern(/^-?(0|[1-9]\d*)?$/)
+        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}'),
+
       ])),
       confirmTransactionPassword: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
-        // Validators.pattern(/^-?(0|[1-9]\d*)?$/),
-        RegisterComponent.matchValues('transactionPassword'),
+        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}'),
+
+        // RegisterComponent.matchValues('transactionPassword'),
+        RxwebValidators.compare({ fieldName: 'transactionPassword' })
       ])),
 
       profilePassword: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
-        // Validators.pattern(/^-?(0|[1-9]\d*)?$/)
+        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}'),
+        
       ])),
       confirmProfilePassword: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
-        // Validators.pattern(/^-?(0|[1-9]\d*)?$/),
-        RegisterComponent.matchValues('confirmProfilePassword'),
-    //  RxwebValidators.compare({fieldName:'profilePassword'})
+        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}'),
+        // RegisterComponent.matchValues('confirmProfilePassword'),
+        RxwebValidators.compare({ fieldName: 'profilePassword' })
       ])),
       otp: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(4),
         Validators.maxLength(4),
       ])),
-})
-this.router.routeReuseStrategy.shouldReuseRoute = () =>false;
-    }
-  
-
-
-  public static matchValues(
-    matchTo: string // name of the control to match to
-  ): (AbstractControl) => ValidationErrors | null {
-    return (control: AbstractControl): ValidationErrors | null => {
-      return !!control.parent &&
-        !!control.parent.value &&
-        control.value === control.parent.controls[matchTo].value
-        ? null
-        : { isMatching: false };
-    };
-
-
+    })
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
 
-  register:Register
-message:string
+
+  // public static matchValues(
+  //   matchTo: string // name of the control to match to
+  // ): (AbstractControl) => ValidationErrors | null {
+  //   return (control: AbstractControl): ValidationErrors | null => {
+  //     return !!control.parent &&
+  //       !!control.parent.value &&
+  //       control.value === control.parent.controls[matchTo].value
+  //       ? null
+  //       : { isMatching: false };
+  //   };
+
+
+  // }
+
+
+  register: Register
+  message: string
   Registration(form) {
-    this.register = new Register(form.value.customerId, form.value.loginPassword,form.value.transactionPassword,form.value.profilePassword)
+    this.register = new Register(form.value.customerId, form.value.loginPassword, form.value.transactionPassword, form.value.profilePassword)
     console.log(this.register)
     let otp = form.value.otp
     console.log(otp)
-    if(otp==this.message){
-        alert("verified");
+    if (otp == this.message) {
+      alert("verified");
 
-    this.service.registerUser(this.register).subscribe(response =>
-      {  alert(JSON.stringify(response));
-         console.log(response)
-         if(response.status=='SUCCESS'){
-           
-           this.message=response.message;
-           alert(this.message)
-         this.router.navigate(['home']);
-         }
-         else
-         this.message = response.message;
-         alert(this.message)
-       })
-      }
-      else
-      {
-        alert("Invalid OTP")
-        this.router.navigated=false;
-        this.router.navigate(['register']);
-      }
-      
+      this.service.registerUser(this.register).subscribe(response => {
+        alert(JSON.stringify(response));
+        console.log(response)
+        if (response.status == 'SUCCESS') {
+
+          this.message = response.message;
+          alert(this.message)
+          this.router.navigate(['home']);
+        }
+        else
+          this.message = response.message;
+        alert(this.message)
+      })
+    }
+    else {
+      alert("Invalid OTP")
+      this.router.navigated = false;
+      this.router.navigate(['register']);
+    }
+
   }
 
-  flag:boolean=false;
+  flag: boolean = false;
 
-  getOtp(id){
-    this.flag=true;
+  getOtp(id) {
+    this.flag = true;
     console.log(id);
     // let temp=id;
     // sessionStorage.setItem('initialId',temp)
     this.otpservice.getOtpForRegistration(id).subscribe(response => {
       alert(response.message)
-      this.message = response.message;})
+      this.message = response.message;
+    })
   }
 
 
-  }
+}
 
-  
+
 
