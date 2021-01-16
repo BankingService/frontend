@@ -2,7 +2,7 @@
 <app-userdashboard></app-userdashboard>
 <h3 style="text-align: center;width:100%;">Add a Beneficiary</h3>
 <div class=frm>
-    <form [formGroup]="form1" (ngSubmit)="addBeneficiary(form1)">
+    <form [formGroup]="form" (ngSubmit)="addBeneficiary(form)">
         <div class=input>
             <div id=selector>
                 Beneficiary Type:
@@ -17,10 +17,14 @@
             </div>
             <div>
                 <input type="text" id="accountNo" class="form-control" formControlName="accountNo">
-                <div *ngIf="form1.get('accountNo').touched && form1.get('accountNo').invalid"
-                    class="alert alert-danger">
-                    <div *ngIf="form1.get('accountNo').hasError('required')">Please Enter Account No</div>
-                    <div *ngIf="form1.get('accountNo').hasError('pattern')">Invalid Account No</div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.accountNo">
+                        <div class="error-message"
+                            *ngIf="form.get('accountNo').hasError(error.type) && (form.get('accountNo').dirty || form.get('accountNo').touched)">
+                            {{ error.message }}
+
+                        </div>
+                    </ng-container>
                 </div>
             </div>
         </div>
@@ -30,11 +34,14 @@
             </div>
             <div>
                 <input type="text" id="reAccountNo" class="form-control" formControlName="reAccountNo">
-                <div *ngIf="form1.get('reAccountNo').touched && form1.get('reAccountNo').invalid"
-                    class="alert alert-danger">
-                    <div *ngIf="form1.get('reAccountNo').hasError('required')">Please Enter Account No</div>
-                    <div *ngIf="form1.get('reAccountNo').hasError('pattern')">Invalid Account No</div>
-                    <!-- <div *ngIf = "form1.get('accountNo') != form1.get('reAccountNo')>Invalid IFSC</div> -->
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.reAccountNo">
+                        <div class="error-message"
+                            *ngIf="form.get('reAccountNo').hasError(error.type) && (form.get('reAccountNo').dirty || form.get('reAccountNo').touched)">
+                            {{ error.message }}
+
+                        </div>
+                    </ng-container>
                 </div>
             </div>
         </div>
@@ -44,9 +51,13 @@
             </div>
             <div>
                 <input type="text" id="ifsc" class="form-control" formControlName="ifsc">
-                <div *ngIf="form1.get('ifsc').touched && form1.get('ifsc').invalid" class="alert alert-danger">
-                    <div *ngIf="form1.get('ifsc').hasError('required')">Please Enter IFSC</div>
-                    <div *ngIf="form1.get('ifsc').hasError('pattern')">Invalid IFSC</div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.ifsc">
+                        <div class="error-message"
+                            *ngIf="form.get('ifsc').hasError(error.type) && (form.get('ifsc').dirty || form.get('ifsc').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
                 </div>
             </div>
         </div>
@@ -56,9 +67,13 @@
             </div>
             <div>
                 <input type="text" id="name" class="form-control" formControlName="name">
-                <div *ngIf="form1.get('name').touched && form1.get('name').invalid" class="alert alert-danger">
-                    <div *ngIf="form1.get('name').hasError('required')">Please Enter Name</div>
-                    <div *ngIf="form1.get('name').hasError('pattern')">Invalid Name</div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.name">
+                        <div class="error-message"
+                            *ngIf="form.get('name').hasError(error.type) && (form.get('name').dirty || form.get('name').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
                 </div>
             </div>
         </div>
@@ -69,15 +84,19 @@
             </div>
             <div>
                 <input type="text" id="nickName" class="form-control" formControlName="nickName">
-                <div *ngIf="form1.get('nickName').touched && form1.get('nickName').invalid" class="alert alert-danger">
-                    <div *ngIf="form1.get('nickName').hasError('required')">Please Enter Nick Name</div>
-                    <div *ngIf="form1.get('nickName').hasError('pattern')">Invalid Nick Name</div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.nickName">
+                        <div class="error-message"
+                            *ngIf="form.get('nickName').hasError(error.type) && (form.get('nickName').dirty || form.get('nickName').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
                 </div>
             </div>
         </div>
 
         <div class=input>
-            <a routerLink="/accountsummary" >Back</a>
+            <a routerLink="/accountsummary">Back</a>
             <input type="button" value="getotp" (click)="getOtp()">
         </div>
         <div class=input>
@@ -86,7 +105,7 @@
             </div>
             <div>
                 <input type="text" id="otp" class="form-control" formControlName="otp">
-                <div *ngIf="form1.get('otp').touched && form1.get('otp').invalid" class="alert alert-danger">
+                <div *ngIf="form.get('otp').touched && form.get('otp').invalid" class="alert alert-danger">
                     Enter OTP
                 </div>
             </div>
