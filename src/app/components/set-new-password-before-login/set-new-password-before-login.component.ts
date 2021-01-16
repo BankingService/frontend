@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { SetNewPassword } from 'src/app/dtoClass/set-new-password';
 import { UserService } from 'src/app/services/user.service';
 
@@ -69,6 +70,7 @@ export class SetNewPasswordBeforeLoginComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
+        RxwebValidators.compare({ fieldName: 'loginpassword' }),
         Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
       ])),
 
@@ -76,6 +78,7 @@ export class SetNewPasswordBeforeLoginComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
+        RxwebValidators.compare({ fieldName: 'transactionpassword' }),
         Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
       ]))
 
