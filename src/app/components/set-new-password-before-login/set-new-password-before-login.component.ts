@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SetNewPassword } from 'src/app/dtoClass/set-new-password';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -32,11 +33,11 @@ customerId=localStorage.initialId
       
     );
   }
-
+  setnewpass:SetNewPassword
   setPasswords(form){
-    this.loginPassword = form.value.confloginpassword
-    this.transactionPassword = form.value.conftransactionpassword
-    this.http.setNewPasswords(this.customerId,this.loginPassword,this.transactionPassword).subscribe(response=>{
+    this.setnewpass=new SetNewPassword( this.customerId,form.value.confloginpassword, form.value.conftransactionpassword) 
+      
+    this.http.setNewPasswords(this.setnewpass).subscribe(response=>{
       if(response.status=='SUCCESS'){
         alert(response.message)
         localStorage.clear();

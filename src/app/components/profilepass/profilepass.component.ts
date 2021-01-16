@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { ProfilePassword } from 'src/app/dtoClass/profile-password';
 import { Profilecheck } from 'src/app/dtoClass/profilecheck';
 import { UserService } from 'src/app/services/user.service';
 
@@ -57,23 +58,23 @@ export class ProfilepassComponent implements OnInit {
     });
   }
 
-  profilecheck:Profilecheck;
+  profilecheck:ProfilePassword;
   message:string
 
   profileLogin(adminformobj) {
 
-    this.profilecheck = new Profilecheck(adminformobj.value.profilePassword)
+    this.profilecheck = new ProfilePassword(sessionStorage.customerId,adminformobj.value.profilePassword)
     console.log(this.profilecheck)
     this.router.navigate(['useraccount'])
-  //   this.service.verifyProfile(this.profilecheck,1).subscribe(response =>
-  //  {  alert(JSON.stringify(response));
-  //     if(response.status=='SUCCESS'){
-  //       this.message=response.message;
-  //     this.router.navigate(['admindashboard']);
-  //     }
-  //     else
-  //     this.message = response.message;
-  //   })
+    this.service.verifyProfile(this.profilecheck).subscribe(response =>
+   {  alert(JSON.stringify(response));
+      if(response.status=='SUCCESS'){
+        this.message=response.message;
+      this.router.navigate(['useraccount']);
+      }
+      else
+      this.message = response.message;
+    })
 }
 
 }

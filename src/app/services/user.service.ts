@@ -23,7 +23,7 @@ export class UserService {
    return this.http.post<any>(url, register); 
   }
 
-  verifyProfile(profilepass,customerID): Observable<any>  {
+  verifyProfile(profilepass): Observable<any>  {
    // console.log(login);
     let url = "http://localhost:8086/userLogin";
    return this.http.post<any>(url,profilepass ); 
@@ -40,8 +40,8 @@ export class UserService {
    return this.http.post<any>(url,customerInfo); 
   }
   
-  setNewPasswords(id,loginPassword,transactionPassword):Observable<any>{
-    let url = "http://localhost:8086/setnewpassword/"+id+"/"+loginPassword+"/"+transactionPassword;
-    return this.http.get<any>(url);
+  setNewPasswords(setnewpassword):Observable<any>{
+    let url = "http://localhost:8086/setnewpassword/"
+    return this.http.post<any>(url,setnewpassword);
   }
 }

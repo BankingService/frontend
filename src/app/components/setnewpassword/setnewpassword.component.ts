@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SetNewPassword } from 'src/app/dtoClass/set-new-password';
 import { UserService } from 'src/app/services/user.service';
+import { SetNewPasswordBeforeLoginComponent } from '../set-new-password-before-login/set-new-password-before-login.component';
 
 @Component({
   selector: 'app-setnewpassword',
@@ -26,11 +28,12 @@ export class SetnewpasswordComponent implements OnInit {
   }
 
   customerId=sessionStorage.customerId
-
+ setNewPass:SetNewPassword
   passwordChange(form){
-    this.loginPassword = form.value.confloginpassword
-    this.transactionPassword = form.value.conftransactionpassword
-    this.http.setNewPasswords(this.customerId,this.loginPassword,this.transactionPassword).subscribe(response=>{
+
+    this.setNewPass = new SetNewPassword(this.customerId,form.value.confloginpassword,form.value.conftransactionpassword)
+
+    this.http.setNewPasswords(this.setNewPass).subscribe(response=>{
       if(response.status=='SUCCESS'){
         alert(response.message)
         this.router.navigate(['accountsummary']);
