@@ -14,7 +14,7 @@ export class AccountstatementComponent implements OnInit {
   form: FormGroup;
   transactiondatetime: Transactiondatetime;
   transactionstatement: any = []
-
+  todayDate:Date;
   flag: boolean = false;
   error_messages = {
 
@@ -26,8 +26,10 @@ export class AccountstatementComponent implements OnInit {
       { type: 'required', message: 'to date is required.' }
     ],
   }
-
-  constructor(private router: Router, private transaction: TransactionstatementService, private formBuilder: FormBuilder) { }
+  
+  constructor(private router: Router, private transaction: TransactionstatementService, private formBuilder: FormBuilder) { 
+    this.todayDate = new Date();}
+  
 
   ngOnInit() {
     this.form = this.formBuilder.group({
