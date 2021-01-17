@@ -71,7 +71,7 @@ userlogin(form){
   verify(){
  // console.log(this.login)
   this.service.verifyUserLogin(this.login).subscribe(response =>
-    {  //alert(JSON.stringify(response));
+    { // alert(JSON.stringify(response));
        console.log(response)
        if(response.status=='SUCCESS'){
          let customerId = response.customerId;
@@ -88,8 +88,9 @@ userlogin(form){
        this.router.navigate(['accountsummary']);
        }
        else
+       {
        this.message = response.message;
-       alert(this.message)
+       alert(this.message)}
      })
 }
 }

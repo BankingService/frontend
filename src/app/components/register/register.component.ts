@@ -175,10 +175,10 @@ export class RegisterComponent implements OnInit {
     let otp = form.value.otp
     console.log(otp)
     if (otp == this.message) {
-      alert("verified");
+     // alert("verified");
 
       this.service.registerUser(this.register).subscribe(response => {
-        alert(JSON.stringify(response));
+     //   alert(JSON.stringify(response));
         console.log(response)
         if (response.status == 'SUCCESS') {
 
