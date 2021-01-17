@@ -1,7 +1,7 @@
 <app-userdashboard></app-userdashboard>
 
 <div>
-  <div class="container" *ngIf="flag==true">
+  <div class="container" *ngIf="flag==false">
     <div class="card">
       <div class="alert alert-warning" >
         <strong> Please <a href=# routerLink="/addBeneficiary"> add beneficiaries </a>for transactions</strong>
@@ -10,16 +10,16 @@
   </div>
 
 
-  <div class="container">
+  <div class="container" >
   <div>
-    <div class="card">
+    <div class="card" *ngIf = "flag == true">
         <ul  class="list-group">
           <li class="list-group-item"><h3>Select the type of Transaction</h3></li>
           <li class="list-group-item"><a href="#" routerLink="/imps">IMPS Transaction</a></li>
           <li class="list-group-item"><a href="#" routerLink="/neft">Neft Transaction</a></li>
           <li class="list-group-item"><a href="#" routerLink="/rtgs">RTGS Transaction</a></li>
         </ul>
-    </div><br><br>
+    </div><br>
   <div class="card">
   <ul class="list-group">
     <li class="list-group-item"> <b>IMPS transaction :</b> Immediate Payment Service (IMPS) is an instant interbank electronic fund transfer service through internet banking.</li>
