@@ -91,10 +91,15 @@ export class ImpsComponent implements OnInit {
       ]))
     })
     this.transaction.createNoOfBeneficiariesRequest(sessionStorage.getItem('customerId')).subscribe((data: {}) => {
-      alert(JSON.stringify(data));
+    //  alert(JSON.stringify(data));
       this.toAccountNo.push(data);
     })
   }
+
+  actionMethod(event: any) {
+    event.target.disabled = true;
+}
+
   setFlag() {
     this.getOtp();
     this.flag = true;

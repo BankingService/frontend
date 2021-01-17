@@ -19,11 +19,11 @@ export class AccountstatementComponent implements OnInit {
   error_messages = {
 
     'fromdate': [
-      { type: 'required', message: 'Admin Id is required.' }
+      { type: 'required', message: 'from date is required.' }
     ],
 
     'todate': [
-      { type: 'required', message: 'todate is required.' }
+      { type: 'required', message: 'to date is required.' }
     ],
   }
 

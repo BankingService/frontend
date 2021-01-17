@@ -43,15 +43,15 @@ export class ProfilepassComponent implements OnInit {
 
       profilePassword: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(1),
-        Validators.maxLength(8)
+        Validators.minLength(6),
+        Validators.maxLength(15)
 
       ])),
 
       confirmProfilePassword: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(1),
-        Validators.maxLength(8),
+        Validators.minLength(6),
+        Validators.maxLength(15),
         RxwebValidators.compare({fieldName:'profilePassword'})
 
       ])) 
