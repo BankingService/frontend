@@ -1,6 +1,6 @@
-<app-dashboardsidebar></app-dashboardsidebar>
 <app-userdashboard></app-userdashboard>
-<h3 style="text-align: center;width:100%;">Add a Beneficiary</h3>
+<br>
+<h3 style="text-align: center;width:100%;"><b>Add Beneficiary</b></h3>
 <div class=frm>
     <form [formGroup]="form" (ngSubmit)="addBeneficiary(form)">
         <div class=input>
@@ -96,10 +96,10 @@
         </div>
 
         <div class=input>
-            <a routerLink="/accountsummary">Back</a>
-            <input type="button" value="getotp" (click)="getOtp()">
+            <a routerLink="/accountsummary" class = "btn btn-link">Back</a>
+            <input type="button" value="Continue" (click)="getOtp()" class="btn btn-success">
         </div>
-        <div class=input>
+        <div class=input *ngIf="flag==true">
             <div id=selector>
                 Enter OTP sent on your registered mobile no/email:
             </div>
@@ -110,9 +110,9 @@
                 </div>
             </div>
         </div>
-        <div class=input>
-            <a routerLink="/accountsummary">Back</a>
-            <input type="submit" value="Submit" />
+        <div class=input *ngIf="flag==true">
+            <a routerLink="/accountsummary" class = "btn btn-link">Back</a>
+            <input type="submit" value="Submit" class="btn btn-success" />
         </div>
 
     </form>

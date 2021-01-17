@@ -66,9 +66,8 @@ export class CreateAccount2Component implements OnInit {
     formData.append('customerId', this.cid);
     formData.append('aadharCard', this.aadharCard);
     formData.append('panCard', this.panCard);
+    alert(formData)
     console.log(formData)
-
-
     this.custservice.picUpload(formData).subscribe(response => 
       {  alert(JSON.stringify(response));
         let refId=response.message;

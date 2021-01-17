@@ -1,12 +1,20 @@
-             <ul >
-                <div id="dashside">
-                <li ><a class="link active" href="#"  (click)="toggleactivelink(0)" routerLink="/accountsummary"> dashboard</a></li>
-                <li ><a class="link" href="#" (click)="toggleactivelink(1)" routerLink="/profilepass" > Account Details</a></li>
-                <li ><a class="link" href="#" (click)="toggleactivelink(2)" routerLink="/fundtransfer" > Fund Transfer</a></li>
-                <li ><a class="link" href="#" (click)="toggleactivelink(3)" routerLink="/addBeneficiary" >Add Beneficiary</a></li>
-                <li ><a class="link" href="#" (click)="toggleactivelink(4)" routerLink="/accountstatement" > Account Statement</a></li>
-            </div>
-            </ul>
-            <router-outlet></router-outlet>
-
+<ul >
+    <img src="../../../assets/images/dashboard.png"/>
+    <div class="card-header"><b>{{customerName}}</b></div>
+    <div class="card-body">
+      <h6 class="card-title">Customer Id: {{customerId}}</h6>
+      <h6 class="card-title">Account Number: {{accountNumber}}</h6>
+      <h6 class="card-title">IFSC: {{ifsc}}</h6>
+      <h6 class="card-title">Account Balance: {{balance}}</h6>
+    </div>
+    <div id="dashside">
         
+    <!-- <li ><a class="link" href="#"   routerLink="/userdashboard" routerLinkActive="active" > Dashboard</a></li> -->
+    <!-- <li ><a class="link" href="#" (click)="toggleactivelink(1)" routerLink="/profilepass" > AccountDetails</a></li> -->
+    <!-- <li ><a class="link" href="#"  routerLink="/fundtransfer" routerLinkActive="active"> Fund Transfer</a></li>
+    <li ><a class="link" href="#"  routerLink="/addBeneficiary" routerLinkActive="active">Add Beneficiary</a></li>
+    <li ><a class="link" href="#" routerLink="/accountstatement" routerLinkActive="active"> Account Statement</a></li> -->
+</div>
+</ul>
+<router-outlet></router-outlet>
+

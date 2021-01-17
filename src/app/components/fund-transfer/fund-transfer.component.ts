@@ -7,19 +7,18 @@ import { TransactionstatementService } from 'src/app/services/transactionstateme
   styleUrls: ['./fund-transfer.component.css']
 })
 export class FundTransferComponent implements OnInit {
-  num:any=[]
-  flag:boolean=false;
-  constructor(private noOfBeneficiaries:TransactionstatementService) { }
+  flag: boolean = false;
+  constructor(private noOfBeneficiaries: TransactionstatementService) {
+    this.noOfBeneficiaries.createNoOfBeneficiariesRequest(sessionStorage.getItem('customerId')).subscribe((data: []) => {
 
-  ngOnInit(){
-    alert("hello")
-    this.noOfBeneficiaries.createNoOfBeneficiariesRequest(sessionStorage.getItem('customerId')).subscribe((data:{})=>{
-      this.num.push(data);
-      if(this.num.length==0){
-        alert("hello2")
-        this.flag=true;
+      if (data.length == 0) {
+        this.flag = true;
       }
+
     })
+  }
+
+  ngOnInit() {
   }
 
 

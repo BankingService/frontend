@@ -1,28 +1,27 @@
-
-   .container
-   {
-       display: flex;
-       
-   justify-content: center;
-   margin-top: 20px;
-   
-   }  
-   .card{
-     
-     
-     padding: 16px;
-    
-      text-align: left;
-   
-   }
-   .error-message {
-    color: red;
-  }
-  input.ng-touched.ng-invalid {
-    border: 1px solid red;
-  } 
-  .frm{
-    margin:auto;
-    border-style: groove;
-    width: 100vh;
+.frm{
+  margin:auto;
+  border-style: groove;
+  width: 100vh;
 }
+
+table{
+  /* background-color: #42c5f8; */
+  color: black;
+  text-align:center;
+} 
+th{
+  
+  padding:10vh;
+  border-bottom: 1px solid black;
+  
+}
+td{
+
+  border-bottom: 1px solid black;
+  
+}
+
+
+
+
+
