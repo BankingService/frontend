@@ -94,7 +94,7 @@ import { SplashscreenComponent } from './components/splashscreen/splashscreen.co
     BlockedCustomersComponent,
     BlockedCustomerDetailsComponent,
     SetNewPasswordBeforeLoginComponent,
-    SplashscreenComponent,
+    SplashscreenComponent
     
   ],
   imports: [

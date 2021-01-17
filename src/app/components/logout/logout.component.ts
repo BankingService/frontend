@@ -11,6 +11,7 @@ import { LogoutService } from 'src/app/services/logout.service';
 })
 export class LogoutComponent implements OnInit {
 
+  logoutTimer;
   lastlog:any=[]
   flag:boolean = false;
   constructor(public router:Router,private locationStrategy: LocationStrategy,public service:LogoutService) { 
@@ -22,9 +23,10 @@ export class LogoutComponent implements OnInit {
    
 this.preventBackButton();
 this.lastlogin();
-    setTimeout(() => {
+// clearTimeout(dashTimer);
+    this.logoutTimer=setTimeout(() => {
       this.router.navigate(['home']);
-    }, 3000);
+    }, 5000);
   }
 
   preventBackButton() {
@@ -49,5 +51,8 @@ this.lastlogin();
     })
 
   }
+ ngOnDestroy(){
+    clearTimeout(this.logoutTimer)
+ }
   
 }
