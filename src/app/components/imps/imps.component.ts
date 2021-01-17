@@ -121,8 +121,9 @@ export class ImpsComponent implements OnInit {
       this.transactionRequest = new Transaction(form2.value.fromAccount, form2.value.toAccount,
         form2.value.amount, this.ImpsNumber, form2.value.transactionPwd, form2.value.remark, sessionStorage.getItem('customerId'));
       //alert(JSON.stringify(this.transactionRequest));
-      // alert(JSON.stringify(this.transactionRequest));
-      this.transaction.createTransactionRequest(this.transactionRequest).subscribe((data: {}) => {  //alert(JSON.stringify(response));
+      alert(JSON.stringify(this.transactionRequest));
+      this.transaction.createTransactionRequest(this.transactionRequest).subscribe((data: {}) => { 
+         alert(JSON.stringify(data));
 
         this.msg = JSON.stringify(data);
         sessionStorage.setItem('data', JSON.stringify(data));
