@@ -3,7 +3,8 @@ ul {
   margin: 0;
   padding: 0;
   width: 20%;
-  background-color: #42c5f8;
+  /* background-color: #42c5f8; */
+  background-color: #375369;
   height: 100%; 
   position: fixed; 
   overflow: auto; 
