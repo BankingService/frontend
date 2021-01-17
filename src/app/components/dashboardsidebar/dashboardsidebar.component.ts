@@ -11,6 +11,14 @@ export class DashboardsidebarComponent implements OnInit {
   
   links:any=document.getElementsByClassName("link");
   
+  customerInfo:any;
+
+  customerId = sessionStorage.customerId;
+  customerName = sessionStorage.customerName;
+  accountNumber = sessionStorage.accountNumber;
+  ifsc = sessionStorage.ifsc;
+  balance = sessionStorage.balance;
+
   constructor() {
    }
 

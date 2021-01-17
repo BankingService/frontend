@@ -12,12 +12,12 @@
         text-align: left;
     }
 </style>
-<h2 style="text-align: center;width:100%;">Customer Details</h2>
+<h2 style="text-align: center;width:100%;">Pending Customer Details</h2>
 
 <div class="frm">
     <div class="input" *ngFor="let cust of custdetails">
-        <table style="width:50%">
-            <tr><b>Personal Details</b></tr><br>
+        <table style="width:100%">
+            <tr><th colspan="2" style="text-align: center;"><b>Personal Details</b></th></tr><br>
             <tr>
                 <th>Title:</th>
                 <td>{{cust.title}}</td>
@@ -64,7 +64,7 @@
                 <th>Date of Birth:</th>
                 <td>{{cust.dateOfBirth}}</td>
             </tr><br>
-            <tr><b>Resedential Address</b></tr>
+            <tr><th colspan="2" style="text-align: center;"><b>Resedential Address</b></th></tr>
             <br>   <tr>
                 <th>Address Line 1:</th>
                 <td>{{cust.cAddressLine1}}</td>
@@ -119,7 +119,7 @@
                 <td>{{cust.pPincode}}</td>
             </tr>
             <br>
-            <tr><b>Occupation Details</b></tr><br>
+            <tr><th colspan="2" style="text-align: center;"><b>Occupation Details</b></th></tr><br>
             <tr>
 
                 <th>Occupation Type:</th>

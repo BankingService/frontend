@@ -31,9 +31,8 @@ input[type=text], select {
   } 
   .wrapper
    {
-       display: flex;
-       
-   justify-content: center;
+       display: flex; 
+   justify-content: flex-end;
    margin-top: 20px;
    
    }  
