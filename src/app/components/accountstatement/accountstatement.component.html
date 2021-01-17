@@ -1,6 +1,6 @@
 <!-- <app-dashboardsidebar></app-dashboardsidebar> -->
 <app-userdashboard></app-userdashboard>
-
+ 
 <div style="margin-left:15%;padding:1px 16px;height:1000px;">
   <div style="text-align: center;">
     <h2>Account Statement</h2>
@@ -8,8 +8,7 @@
   <div>
     <div>
       <form [formGroup]="form" (ngSubmit)=" onTransactionStatementRequest(form)">
-
-
+ 
         <br>
         <div style="text-align: right;">
           Statement From <input type="date" id="fromdate" formControlName="fromdate"> To <input type="date" id="todate"
@@ -21,27 +20,10 @@
             <div class="error-message" *ngIf="form.get('fromdate').hasError(error.type) && (form.get('fromdate').dirty ||
                 form.get('fromdate').touched)">
               {{ error.message }}
-
-    </div>
-
-    <div style="margin-left:15%;padding:1px 16px;height:1000px;">
-      <div style="text-align: center;">
-        <h2>Account Statement</h2>
-      </div>
-      <div>
-        <div>
-          <form [formGroup]="form" (ngSubmit)=" onTransactionStatementRequest(form)">
-
-            <br>
-            <div style="text-align: right;">
-              Statement From <input type="date" id="fromdate" formControlName="fromdate" max= {{todayDate}}> To <input type="date"
-                id="todate" formControlName="todate">
-
             </div>
           </ng-container>
         </div>
-
-
+ 
         <div class="error-messages">
           <ng-container *ngFor="let error of error_messages.todate">
             <div class="error-message" *ngIf="form.get('fromdate').value>form.get('todate').value  &&  (form.get('todate').dirty ||
@@ -51,17 +33,16 @@
             <!-- <b>Please select valid Dates</b> -->
             </ng-container>
           </div>
-
+ 
         <div class="wrapper">
           <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;"
           [disabled]="!form.valid ||(form.value.fromdate>form.value.todate) || (today<form.value.todate) ">Submit</button>
-
+ 
         </div>
-
+ 
       </form>
     </div>
-
-
+ 
     <div style="padding-left: 7%;">
       <br>
       <table class="table table-bordered">
@@ -73,24 +54,24 @@
           <th>Transaction Type</th>
           <th>Balance</th>
         </tr>
-
+ 
         <tr *ngFor="let transaction of transactionstatement[0]">
           <td>{{transaction.date}}</td>
           <td>{{transaction.transactionId}}</td>
-
+ 
           <td>{{transaction.message}}</td>
           <td style="color: red;" *ngIf="transaction.transactionType === 'DEBIT'">{{transaction.transactionAmount}}
           </td>
-
+ 
           <td style="color: green;" *ngIf="transaction.transactionType === 'CREDIT'">{{transaction.transactionAmount}}
           </td>
-
+ 
           <td>{{transaction.transactionType}}</td>
           <td>{{transaction. updatedBalance}}</td>
         </tr>
-
+ 
       </table>
     </div>
-
+ 
   </div>
 </div>
