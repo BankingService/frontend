@@ -68,7 +68,7 @@ export class AdminloginComponent implements OnInit {
     console.log(this.admin)
     
     this.service.verifyLogin(this.admin).subscribe(response =>
-   {  alert(JSON.stringify(response));
+   {  //alert(JSON.stringify(response));
       console.log(response)
       if(response.status=='SUCCESS'){
         let adminId = response.adminId;
@@ -80,6 +80,7 @@ export class AdminloginComponent implements OnInit {
       }
       else
       this.message = response.message;
+      alert(this.message)
     })
 }
 }

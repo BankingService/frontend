@@ -21,13 +21,16 @@ export class AccountstatementComponent implements OnInit {
     'fromdate': [
     //  { type: 'required', message: ' from date is required'},
       { type: 'required', message: ' Please enter a valid date.'}
+
     ],
 
     'todate': [
    //   { type: 'required', message: 'to date is required.' },
-      { type: 'required', message: ' Please enter a valid date.'},
+      { type: 'required', message: ' Please enter a valid date.'}
     ],
   }
+
+  today = new Date().toJSON().split('T')[0];
 
   constructor(private router: Router, private transaction: TransactionstatementService, private formBuilder: FormBuilder) { }
 

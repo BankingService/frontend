@@ -28,7 +28,7 @@ export class UserAccountComponent implements OnInit {
 
   redirectTo()
   {
-    this.router.navigate(['/userdashboard'])
+    this.router.navigate(['/accountsummary'])
   }
   redirectTo2()
   {

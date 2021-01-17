@@ -39,15 +39,15 @@ export class AccountsummaryComponent implements OnInit {
     //  let fromdate1=fromdate.toISOString().slice(0,10);
     //  fromdate1 = fromdate + "T00:00:00.001";
     //  alert(fromdate1);
-    alert(fromdate.toISOString().slice(0, 10) + "T00:00:00.001")
+   // alert(fromdate.toISOString().slice(0, 10) + "T00:00:00.001")
 
     this.transactiondatetime = new Transactiondatetime(fromdate.toISOString().slice(0, 10) + "T00:00:00.001", todate, sessionStorage.getItem('accountNumber'));
     this.transaction.createTransactionStatementRequest(this.transactiondatetime).subscribe((data: {}) => {
-      alert(JSON.stringify(data));
+   //   alert(JSON.stringify(data));
       this.transactionstatement.push(data);
       this.transactionstatement[0].sort(this.GetSortOrder("date"));
       if (this.transactionstatement[0].length == 0) {
-        alert("no transactions are done within selected date")
+    //    alert("no transactions are done within selected date")
       }
       else {
         this.flag = true;
