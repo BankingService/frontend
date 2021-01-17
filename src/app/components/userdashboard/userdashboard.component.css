@@ -30,13 +30,13 @@
 
   .topnav {
     padding-left: 20%;
-    background-color: #42c5f8;
+    background-color: #ffffff;
     overflow: hidden;
 }
 
 .topnav a {
   float: left;
-  color: #ffffff;
+  color: #000000;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -45,12 +45,13 @@
 
 
 .topnav a:hover {
-  background-color: darkgrey;
-  color: black;
+  background-color: #375369;
+  color: rgb(255, 255, 255);
 }
 
 .topnav a.active {
-  background-color: darkgrey;
+
+  background-color: #375369;
   color: white;
 }
 

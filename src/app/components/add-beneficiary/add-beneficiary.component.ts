@@ -122,6 +122,7 @@ export class AddBeneficiaryComponent implements OnInit {
 
   }
   getOtp() {
+    this.flag = true;
     this.service.getBeneficiaryOtp(this.customerId).subscribe(response => {
       this.otpmessage = response.message
       alert(this.otpmessage)

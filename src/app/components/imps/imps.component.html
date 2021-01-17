@@ -1,6 +1,6 @@
-<app-dashboardsidebar></app-dashboardsidebar>
 <app-userdashboard></app-userdashboard>
-<h3 style="text-align: center;width:100%;">Initiate IMPS Transaction</h3>
+<br>
+<h3 style="text-align: center;width:100%;"><b>Initiate IMPS Transaction</b></h3>
 <div class=frm>
     <form [formGroup]="form" (ngSubmit)="transactionrequest(form)">
 
@@ -46,7 +46,7 @@
                             </div>
                         </ng-container>
                     </div>
-                    <button><a href="#" routerLink="/addBeneficiary">Add Beneficiary</a></button>
+                    <button><a href="#" routerLink="/addBeneficiary" class="btn btn-secondary">Add Beneficiary</a></button>
                 </div>
             </div>
         </div>
@@ -87,8 +87,8 @@
             </ng-container>
         </div>
         <div class=input>
-            <a routerLink="/fundtransfer">Back</a>
-            <input type="button" (click)="setFlag()" value="continue">
+            <a routerLink="/fundtransfer" class="btn btn-link">Back</a>
+            <input type="button" (click)="setFlag()" value="Continue" class="btn btn-success">
         </div>
 
         <div class=input *ngIf="flag==true">
@@ -128,8 +128,8 @@
             </div>
         </div>
         <div class=input *ngIf="flag==true">
-            <a routerLink="/fundtransfer">Back</a>
-            <input type="submit" value="Done" />
+            <a routerLink="/fundtransfer" class="btn btn-link">Back</a>
+            <input type="submit" value="Submit" class="btn btn-success"/>
         </div>
 
     </form>
