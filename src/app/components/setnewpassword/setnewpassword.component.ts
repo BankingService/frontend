@@ -88,7 +88,7 @@ export class SetnewpasswordComponent implements OnInit {
   customerId = sessionStorage.customerId
   setNewPass: SetNewPassword
   passwordChange(form) {
-
+    alert(this.customerId+form.value.confloginpassword+ form.value.conftransactionpassword)
     this.setNewPass = new SetNewPassword(this.customerId, form.value.confloginpassword, form.value.conftransactionpassword)
 
     this.http.setNewPasswords(this.setNewPass).subscribe(response => {
