@@ -186,9 +186,10 @@ export class RegisterComponent implements OnInit {
           alert(this.message)
           this.router.navigate(['home']);
         }
-        else
+        else{
           this.message = response.message;
         alert(this.message)
+        }
       })
     }
     else {

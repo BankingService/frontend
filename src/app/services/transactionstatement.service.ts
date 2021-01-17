@@ -22,7 +22,7 @@ export class TransactionstatementService {
   }
 
   createBeneficiaryRequest(beneficiary): Observable<any> {
-    alert(beneficiary);
+    //alert(beneficiary);
     return this.http.post<any>(this.apiUrl + 'addBeneficiary/',beneficiary);
   }
 

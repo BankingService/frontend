@@ -16,9 +16,9 @@ form: FormGroup;
 error_messages = {
   'customerId': [
     {  type: 'required', message: 'User Id is required.' },
-    { type: 'minlength', message: 'Password length too small' },
-      { type: 'maxlength', message: 'Exceeds password length limit' },
-      { type: 'pattern', message:'Password must consist only number'}
+    { type: 'minlength', message: 'Customer Id length too small' },
+      { type: 'maxlength', message: 'Exceeds length limit' },
+      { type: 'pattern', message:'User Id must consist only number'}
   ],
 
 
