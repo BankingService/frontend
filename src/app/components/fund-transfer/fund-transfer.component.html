@@ -1,19 +1,41 @@
 <app-dashboardsidebar></app-dashboardsidebar>
 <app-userdashboard></app-userdashboard>
+
+
 <div>
+  <div class="container" *ngIf="flag==true">
+    <div class="card">
+      <div class="alert alert-warning" >
+        <strong> Please <a href=# routerLink="/addBeneficiary"> add beneficiaries </a>for transactions</strong>
+      </div>
+    </div>
+  </div>
 
-<div *ngIf="flag==true" style="margin-left:15%;padding:1px 16px;text-align: center;margin-top: 30vh;" class="error-message">
-  please add beneficiaries to send and recieve 
-</div>
 
-<div style="margin-left:15%;padding:1px 16px;height:1000px;text-align: center;">
-<ul class="nav navbar-nav">
-  <li><a href="#" routerLink="/imps">IMPS Transaction</a></li>
-  <li><a href="#" routerLink="/neft">Neft Transaction</a></li>
-  <li><a href="#" routerLink="/rtgs">RTGS Transaction</a></li>
-</ul>
+  <div class="container" *ngIf="flag==false">
+  <div>
+    <div class="card">
+        <ul  class="list-group">
+          <li class="list-group-item"><h3>Select the type of Transaction</h3></li>
+          <li class="list-group-item"><a href="#" routerLink="/imps">IMPS Transaction</a></li>
+          <li class="list-group-item"><a href="#" routerLink="/neft">Neft Transaction</a></li>
+          <li class="list-group-item"><a href="#" routerLink="/rtgs">RTGS Transaction</a></li>
+        </ul>
+    </div><br><br>
+  <div class="card">
+  <ul class="list-group">
+    <li class="list-group-item"> <b>IMPS transaction :</b> Immediate Payment Service (IMPS) is an instant interbank electronic fund transfer service through internet banking.</li>
+    <li class="list-group-item"><b>NEFT transaction :</b> National Electronic Fund Transfer (NEFT) is a nation-wide payments system that allows the transfer of funds from one bank's account to another.</li>
+    <li class="list-group-item"><b>RTGS transaction :</b> Real-Time Gross Settlement (RTGS) is a funds transfer system that allows for the instantaneous transfer of money and/or securities.Once completed, real-time gross settlement payments are final and irrevocable.</li>
+  
+  </ul>
+  </div>
 
-</div>
+  </div>
+  </div>
+
+
+
 </div>
 <router-outlet></router-outlet>
 

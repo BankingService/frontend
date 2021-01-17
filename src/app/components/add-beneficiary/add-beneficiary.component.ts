@@ -110,7 +110,8 @@ export class AddBeneficiaryComponent implements OnInit {
 
       console.log(JSON.stringify(this.beneficiary));
       this.service.createBeneficiaryRequest(this.beneficiary).subscribe(response => {
-        alert(JSON.stringify(response))
+       // alert(JSON.stringify(response))
+       this.router.navigate(['fundtransfer'])
       })
     }
     else {
