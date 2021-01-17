@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OtpserviceService } from 'src/app/services/otpservice.service';
+import swal from 'sweetalert';
 
 
 @Component({
@@ -95,6 +96,11 @@ export class ForgotuseridComponent implements OnInit {
       this.service.verifyOtpByAccountNumber(this.customerId).subscribe(response => {
         alert(response.message)
         this.message = response.message
+        if (response.status == 'SUCCESS'){
+          swal("Customer Id is verified Successfully!!", "plese check mail after sometime", "success");
+        }else{
+          swal("Error Occured", "Please try again after sometime", "error");
+        }
       })
       this.router.navigate(['login']);
     }

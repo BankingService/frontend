@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { SetNewPassword } from 'src/app/dtoClass/set-new-password';
 import { UserService } from 'src/app/services/user.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-set-new-password-before-login',
@@ -90,11 +91,12 @@ export class SetNewPasswordBeforeLoginComponent implements OnInit {
       
     this.http.setNewPasswords(this.setnewpass).subscribe(response=>{
       if(response.status=='SUCCESS'){
-        alert(response.message)
+        swal("Password Set Successfully!!", "", "success");
         localStorage.clear();
         this.router.navigate(['login']);
       }
       else {
+        swal("Error Occured", "Please try again after sometime", "error");
         alert(response.message)
       }
     })

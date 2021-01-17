@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {  Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SetNewPassword } from 'src/app/dtoClass/set-new-password';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { UserService } from 'src/app/services/user.service';
-import { SetNewPasswordBeforeLoginComponent } from '../set-new-password-before-login/set-new-password-before-login.component';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-setnewpassword',
@@ -93,10 +93,11 @@ export class SetnewpasswordComponent implements OnInit {
 
     this.http.setNewPasswords(this.setNewPass).subscribe(response => {
       if (response.status == 'SUCCESS') {
-        alert(response.message)
+        swal("Password Set Successfully!!", "", "success");
         this.router.navigate(['accountsummary']);
       }
       else {
+        swal("Error Occured", "Please try again after sometime", "error");
         alert(response.message)
       }
     })

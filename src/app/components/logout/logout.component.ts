@@ -2,6 +2,7 @@ import { LocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LogoutService } from 'src/app/services/logout.service';
+import swal from 'sweetalert';
 
 
 @Component({
@@ -19,8 +20,8 @@ export class LogoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    
-   
+    swal("Logout Successfully!!", "Have a good day!", "success");
+  
 this.preventBackButton();
 this.lastlogin();
 // clearTimeout(dashTimer);

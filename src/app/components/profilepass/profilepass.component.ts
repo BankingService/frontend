@@ -74,6 +74,7 @@ export class ProfilepassComponent implements OnInit {
       }
       else
       this.message = response.message;
+      alert("password incorrect")
     })
 }
 
