@@ -15,7 +15,7 @@
             <div class="form-group row">
                 <label class="col-sm-5 col-form-label">Title <span style="color:red">*</span></label>
                 <div class="col-sm-6">
-                    <select class="form-control" id="title" formControlName="title">
+                    <select class="form-control" id="title" formControlName="title" required>
                         <option value="Mr."> Mr.</option>
                         <option value="Mrs."> Mrs.</option>
                         <option value="Ms."> Ms.</option>
@@ -35,7 +35,7 @@
                 <label for="fName" class="col-sm-5 col-form-label">First Name <span style="color:red">*</span></label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="fName" formControlName="firstName"
-                        placeholder="Enter First Name">
+                        placeholder="Enter First Name" required>
                 </div>
             </div>
             <div class="error-messages">
@@ -64,7 +64,7 @@
                 <label for="lName" class="col-sm-5 col-form-label">Last Name <span style="color:red">*</span> </label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="lName" formControlName="lastName"
-                        placeholder="Enter Last Name">
+                        placeholder="Enter Last Name" required>
                 </div>
             </div>
             <div class="error-messages">
@@ -80,7 +80,7 @@
                         style="color:red">*</span></label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="fatherName" formControlName="fatherName"
-                        placeholder="Enter Father's Name">
+                        placeholder="Enter Father's Name" required>
                 </div>
             </div>
             <div class="error-messages">
@@ -98,7 +98,7 @@
                         style="color:red">*</span></label>
                 <div class="col-sm-6">
                     <input type="tel" class="form-control" id="mobileNumber" formControlName="mobileNumber"
-                        placeholder="Enter Mobile Number">
+                        placeholder="Enter Mobile Number" required>
                 </div>
             </div>
             <div class="error-messages">
@@ -113,7 +113,7 @@
                 <label for="emailId" class="col-sm-5 col-form-label">Email ID <span style="color:red">*</span></label>
                 <div class="col-sm-6">
                     <input type="email" class="form-control" id="emailId" formControlName="emailId"
-                        placeholder="Enter Email Address">
+                        placeholder="Enter Email Address" required>
                 </div>
             </div>
             <div class="error-messages">
@@ -129,7 +129,7 @@
                         style="color:red">*</span></label>
                 <div class="col-sm-6">
                     <input type="tel" class="form-control" id="aadharNumber" formControlName="aadharCardNo"
-                        placeholder="Enter Aadhar Card Number">
+                        placeholder="Enter Aadhar Card Number" required>
                 </div>
             </div>
             <div class="error-messages">
@@ -147,7 +147,7 @@
                         style="color:red">*</span></label>
                 <div class="col-sm-6">
                     <input type="tel" class="form-control" id="PanNumber" formControlName="panNumber"
-                        placeholder="Enter PAN Card Number">
+                        placeholder="Enter PAN Card Number" required>
                 </div>
             </div>
             <div class="error-messages">
@@ -163,7 +163,7 @@
             <div class="form-group row">
                 <label for="dob" class="col-sm-5 col-form-label">Date of Birth <span style="color:red">*</span></label>
                 <div class="col-sm-6">
-                    <input type="date" class="form-control" id="dob" placeholder="Enter DOB" name="dob" formControlName="dateOfBirth">
+                    <input type="date" class="form-control" id="dob" placeholder="Enter DOB" name="dob" formControlName="dateOfBirth" required>
                 </div>
             </div>
             <div class="error-messages">
@@ -188,7 +188,7 @@
                             style="color:red">*</span></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" id="resLine1" formControlName="cAddressLine1"
-                            placeholder="Enter Address Line 1">
+                            placeholder="Enter Address Line 1" required>
                     </div>
                 </div>
                 <div class="error-messages">
@@ -204,7 +204,7 @@
                             style="color:red">*</span></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" id="resLine2" formControlName="cAddressLine2"
-                            placeholder="Enter Address Line 2">
+                            placeholder="Enter Address Line 2" required>
                     </div>
                 </div>
                 <div class="error-messages">
@@ -234,7 +234,7 @@
                     <label for="resCity" class="col-sm-5 col-form-label">City <span style="color:red">*</span></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" id="resCity" formControlName="cCity"
-                            placeholder="Enter City">
+                            placeholder="Enter City" required>
                     </div>
                 </div>
                 <div class="error-messages">
@@ -249,7 +249,7 @@
                     <label for="resState" class="col-sm-5 col-form-label">State <span style="color:red">*</span></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" id="resState" formControlName="cState"
-                            placeholder="Enter State">
+                            placeholder="Enter State" required>
                     </div>
                 </div>
                 <div class="error-messages">
@@ -273,7 +273,7 @@
                             style="color:red">*</span></label>
                     <div class="col-sm-6">
                         <input type="tel" pattern="[0-9]{6}" class="form-control" id="resCode" formControlName="cPincode"
-                            placeholder="Enter Pin Code">
+                            placeholder="Enter Pin Code" required>
                     </div>
                 </div>
                 <div class="error-messages">
@@ -293,13 +293,13 @@
                 </div>
 
 
-               <div class="form-group row">
+               <!-- <div class="form-group row">
 
                     <div class="col-sm-1">
-                        <input type="checkbox" class="form-control" id="filladdress" name="filladdress" onchange="addressFunction()">
+                        <input type="checkbox" class="form-control" id="filladdress" name="filladdress" onclick="addressFunction()">
                     </div>
                     <label class="col-sm-10 col-form-label">Permanent Address same as Mailing Address</label>
-                </div>
+                </div> -->
 
 
                 <div class="form-group row">
@@ -307,7 +307,7 @@
                             style="color:red">*</span></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" id="presLine1" formControlName="pAddressLine1"
-                            placeholder="Enter Address Line 1">
+                            placeholder="Enter Address Line 1" required>
                     </div>
                 </div>
 
@@ -324,7 +324,7 @@
                             style="color:red">*</span></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" id="presLine2" formControlName="pAddressLine2"
-                            placeholder="Enter Address Line 2">
+                            placeholder="Enter Address Line 2" required>
                     </div>
                 </div>
                 <div class="error-messages">
@@ -354,7 +354,7 @@
                     <label for="presCity" class="col-sm-5 col-form-label">City <span style="color:red">*</span></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" id="presCity" formControlName="pCity"
-                            placeholder="Enter City">
+                            placeholder="Enter City" required>
                     </div>
                 </div>
                 <div class="error-messages">
@@ -370,7 +370,7 @@
                             style="color:red">*</span></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" id="presState" formControlName="pState"
-                            placeholder="Enter State">
+                            placeholder="Enter State" required>
                     </div>
                 </div>
                 <div class="error-messages">
@@ -394,7 +394,7 @@
                             style="color:red">*</span></label>
                     <div class="col-sm-6">
                         <input type="tel" pattern="[0-9]{6}" class="form-control" id="presCode" formControlName="pPincode"
-                            placeholder="Enter Pin Code">
+                            placeholder="Enter Pin Code" required>
                     </div>
                 </div>
                 <div class="error-messages">
@@ -417,7 +417,7 @@
                     <label class="col-sm-5 col-form-label">Occupation Type <span style="color:red">*</span></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" id="occupation" placeholder="Enter Occupation"
-                            name="occupation" formControlName="occupationType">
+                            name="occupation" formControlName="occupationType" required>
                     </div>
                 </div>
                 <div class="error-messages">
@@ -432,7 +432,7 @@
                     <label class="col-sm-5 col-form-label">Source of Income <span style="color:red">*</span></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" id="income" placeholder="Enter Source of Income"
-                            name="income" formControlName="sourceOfIncome">
+                            name="income" formControlName="sourceOfIncome" required>
                     </div>
                 </div>
                 <div class="error-messages">
@@ -464,7 +464,7 @@
 
 
             <div class="form-group row" class="text-center">
-				<input type="button" class="btn btn-primary form-control " style="margin-bottom: 20px; width: 100px;"
+				<input type="button" class="btn btn-primary form-control " style="margin-bottom: 20px; width: 100px;" [disabled]="form.invalid"
 				  (click)="getOtp(form.value.emailId)" value="Proceed">
 			</div>
             
@@ -475,7 +475,7 @@
                            style="color:red">*</span></label>
    
                    <div class="col-sm-6">
-                       <input class="form-control" formControlName="otp" type="text" placeholder="Enter OTP" />
+                       <input class="form-control" formControlName="otp" type="text" placeholder="Enter OTP" required />
                    </div>
                </div>
                <div class="error-messages">
@@ -495,11 +495,11 @@
                 <div class="col-sm-1">
                     <input type="checkbox" class="form-control" id="terms" required>
                 </div>
-                <label class="col-sm-5 col-form-label">I agree to the Terms and Conditions</label>
+                <label class="col-sm-5 col-form-label" required>I agree to the Terms and Conditions</label>
             </div>
 
             <div>
-                <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;"
+                <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="form.invalid"
                     >Next</button>
                     <!-- [disabled]="form.invalid" -->
         </div><br><br><br><br><br>

@@ -25,6 +25,8 @@ input[type=text], select {
   }
   .error-message {
     color: red;
+    text-align: right;
+    margin-right: 2%;
   }
   input.ng-touched.ng-invalid {
     border: 1px solid red;
