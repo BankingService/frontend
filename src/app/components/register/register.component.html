@@ -1,4 +1,5 @@
 <app-home-nav-bar></app-home-nav-bar>
+<br><br>
 <div class="container">
 	<h3>Register</h3>
 </div>
@@ -11,7 +12,7 @@
 						style="color:red">*</span></label>
 				<div class="col-sm-6">
 					<input class="form-control" formControlName="customerId" type="text"
-						placeholder="Enter Customer Id" />
+						placeholder="Enter Customer Id" required/>
 				</div>
 			</div>
 			<div class="error-messages">
@@ -32,7 +33,7 @@
 
 				<div class="col-sm-6">
 					<input class="form-control" formControlName="loginPassword" type="password"
-						placeholder="Enter Login Password" />
+						placeholder="Enter Login Password" required />
 				</div>
 			</div>
 			<div class="error-messages">
@@ -52,7 +53,7 @@
 
 				<div class="col-sm-6">
 					<input class="form-control" formControlName="confirmLoginPassword" type="password"
-						placeholder="Enter Password" />
+						placeholder="Enter Password" required />
 				</div>
 			</div>
 			<div class="error-messages">
@@ -71,7 +72,7 @@
 
 				<div class="col-sm-6">
 					<input class="form-control" formControlName="transactionPassword" type="password"
-						placeholder="Enter Transaction Password" />
+						placeholder="Enter Transaction Password" required />
 				</div>
 			</div>
 			<div class="error-messages">
@@ -91,7 +92,7 @@
 
 				<div class="col-sm-6">
 					<input class="form-control" formControlName="confirmTransactionPassword" type="password"
-						placeholder="Enter Password" />
+						placeholder="Enter Password" required />
 				</div>
 			</div>
 			<div class="error-messages">
@@ -109,7 +110,7 @@
 
 				<div class="col-sm-6">
 					<input class="form-control" formControlName="profilePassword" type="password"
-						placeholder="Enter Profile Password" />
+						placeholder="Enter Profile Password" required />
 				</div>
 			</div>
 			<div class="error-messages">
@@ -129,7 +130,7 @@
 
 				<div class="col-sm-6">
 					<input class="form-control" formControlName="confirmProfilePassword" type="password"
-						placeholder="Enter Password" />
+						placeholder="Enter Password" required/>
 				</div>
 			</div>
 			<div class="error-messages">
@@ -143,38 +144,37 @@
 
 
 			<div class="form-group row" class="text-center">
-				<input type="button" class="btn btn-primary form-control " style="margin-bottom: 20px; width: 100px;"
-				  (click)="getOtp(form.value.customerId)" value="Proceed">
+				<input type="button" class="btn btn-primary form-control " style="margin-bottom: 20px; width: 100px;" value="Proceed"
+					(click)="getOtp(form.value.customerId)"  >
 			</div>
 
-		  
-				<div *ngIf="flag==true">
-			 <div class="form-group row">
 
-				<label for="inputPassword" class="col-sm-4 col-form-label"> Enter OTP <span
-						style="color:red">*</span></label>
+			<div *ngIf="flag==true">
+				<div class="form-group row">
 
-				<div class="col-sm-6">
-					<input class="form-control" formControlName="otp" type="number" placeholder="Enter OTP" />
-				</div>
-			</div>
-			<div class="error-messages">
-				<ng-container *ngFor="let error of error_messages.lname">
-					<div class="error-message"
-						*ngIf="form.get('otp').hasError(error.type) && (form.get('otp').dirty || form.get('otp').touched)">
-						{{ error.message }}
+					<label for="inputPassword" class="col-sm-4 col-form-label"> Enter OTP <span
+							style="color:red">*</span></label>
 
+					<div class="col-sm-6">
+						<input class="form-control" formControlName="otp" type="number" required placeholder="Enter OTP" />
 					</div>
-				</ng-container>
-			</div>
+				</div>
+				<div class="error-messages">
+					<ng-container *ngFor="let error of error_messages.otp">
+						<div class="error-message"
+							*ngIf="form.get('otp').hasError(error.type) && (form.get('otp').dirty || form.get('otp').touched)">
+							{{ error.message }}
 
-			<div class="wrapper" class="text-center">
-				<button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;"
-					
-					>Register</button>
+						</div>
+					</ng-container>
+				</div>
+
+				<div class="form-group row" class="text-center">
+					<button type="submit" class="form-control btn btn-primary"
+						style="margin-bottom: 20px; width: 100px;" [disabled]="form.invalid">Register</button>
+				</div>
+				<!-- [disabled]="!form.valid" -->
 			</div>
-			<!-- [disabled]="!form.valid" -->
-		</div>
 		</form>
 
 	</div>

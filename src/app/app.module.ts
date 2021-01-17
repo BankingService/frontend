@@ -48,7 +48,7 @@ import { BlockedCustomerDetailsComponent } from './Components/blocked-customer-d
 import { SetNewPasswordBeforeLoginComponent } from './components/set-new-password-before-login/set-new-password-before-login.component';
 import { OtpserviceService } from './services/otpservice.service';
 import { SplashscreenComponent } from './components/splashscreen/splashscreen.component';
-import { AboutUsComponent } from './components/about-us/about-us.component';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
 
 
 //import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';

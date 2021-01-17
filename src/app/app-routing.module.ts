@@ -1,6 +1,7 @@
 import { registerLocaleData } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
 import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
 import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
 import { ActiveCustomerDetailsComponent } from './Components/active-customer-details/active-customer-details.component';
@@ -63,6 +64,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent ,canActivate:[UserAuthGaurdService]},
   { path: 'register', component: RegisterComponent },
   { path: 'setnewpassword', component: SetnewpasswordComponent },
+  { path: 'aboutus' , component:AboutUsComponent},
   { path: 'setnewpasswordbeforelogin', component: SetNewPasswordBeforeLoginComponent },
   { path: 'transsuccess', component: TransactionSuccessfulComponent ,canActivate:[UserAuthGaurdService]},
   { path: 'useraccount', component: UserAccountComponent },
