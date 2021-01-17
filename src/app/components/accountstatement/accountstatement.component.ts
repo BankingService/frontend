@@ -19,11 +19,13 @@ export class AccountstatementComponent implements OnInit {
   error_messages = {
 
     'fromdate': [
-      { type: 'required', message: 'from date is required.' }
+    //  { type: 'required', message: ' from date is required'},
+      { type: 'required', message: ' Please enter a valid date.'}
     ],
 
     'todate': [
-      { type: 'required', message: 'to date is required.' }
+   //   { type: 'required', message: 'to date is required.' },
+      { type: 'required', message: ' Please enter a valid date.'},
     ],
   }
 
@@ -33,7 +35,8 @@ export class AccountstatementComponent implements OnInit {
     this.form = this.formBuilder.group({
 
       fromdate: new FormControl('', Validators.compose([
-        Validators.required
+      
+        Validators.required,
 
       ])),
 
