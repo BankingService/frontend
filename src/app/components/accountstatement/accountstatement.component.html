@@ -9,6 +9,7 @@
     <div>
       <form [formGroup]="form" (ngSubmit)=" onTransactionStatementRequest(form)">
 
+<<<<<<< HEAD
         <br>
         <div style="text-align: right;">
           Statement From <input type="date" id="fromdate" formControlName="fromdate"> To <input type="date" id="todate"
@@ -20,6 +21,22 @@
             <div class="error-message" *ngIf="form.get('fromdate').hasError(error.type) && (form.get('fromdate').dirty ||
                 form.get('fromdate').touched)">
               {{ error.message }}
+=======
+    </div>
+
+    <div style="margin-left:15%;padding:1px 16px;height:1000px;">
+      <div style="text-align: center;">
+        <h2>Account Statement</h2>
+      </div>
+      <div>
+        <div>
+          <form [formGroup]="form" (ngSubmit)=" onTransactionStatementRequest(form)">
+
+            <br>
+            <div style="text-align: right;">
+              Statement From <input type="date" id="fromdate" formControlName="fromdate" max= {{todayDate}}> To <input type="date"
+                id="todate" formControlName="todate">
+>>>>>>> f0de18de66cc79a27bb3e88ffcdd2e489a7151d2
             </div>
           </ng-container>
         </div>

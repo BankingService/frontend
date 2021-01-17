@@ -69,7 +69,7 @@ userlogin(form){
 }
 
   verify(){
-  console.log(this.login)
+ // console.log(this.login)
   this.service.verifyUserLogin(this.login).subscribe(response =>
     { // alert(JSON.stringify(response));
        console.log(response)

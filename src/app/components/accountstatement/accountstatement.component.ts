@@ -14,7 +14,7 @@ export class AccountstatementComponent implements OnInit {
   form: FormGroup;
   transactiondatetime: Transactiondatetime;
   transactionstatement: any = []
-
+  todayDate:Date;
   flag: boolean = false;
   error_messages = {
 
@@ -29,10 +29,17 @@ export class AccountstatementComponent implements OnInit {
       { type: 'required', message: ' Please enter a valid date.'}
     ],
   }
+<<<<<<< HEAD
 
   today = new Date().toJSON().split('T')[0];
 
   constructor(private router: Router, private transaction: TransactionstatementService, private formBuilder: FormBuilder) { }
+=======
+  
+  constructor(private router: Router, private transaction: TransactionstatementService, private formBuilder: FormBuilder) { 
+    this.todayDate = new Date();}
+  
+>>>>>>> f0de18de66cc79a27bb3e88ffcdd2e489a7151d2
 
   ngOnInit() {
     this.form = this.formBuilder.group({
