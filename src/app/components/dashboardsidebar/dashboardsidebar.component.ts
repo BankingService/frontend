@@ -31,6 +31,7 @@ export class DashboardsidebarComponent implements OnInit {
       {  //alert(JSON.stringify(response)+"hi there");
         //  alert(response.message);
          sessionStorage.setItem('balance',response.message);
+         this.balance = sessionStorage.balance;
         }    
     )
   },5000)
