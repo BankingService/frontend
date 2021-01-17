@@ -1,5 +1,5 @@
 .app-splash-screen {
-    background: #fff;
+    background:#fff;
     position: fixed;
     top: 0;
     left: 0;
@@ -39,13 +39,13 @@
   }
   
   .app-loader {
-    background: url("/assets/images/bank.png");
+    background: url("/assets/images/loading1.gif");
     background-repeat: no-repeat;
     max-width: 100%;
     background-position: center;
     background-size: contain;
-    width: 80px;
-    height: 80px;
+    width: 190px;
+    height: 180px;
     margin-top: 80px;
   }
   
