@@ -129,7 +129,7 @@
         </div>
         <div class=input *ngIf="flag==true">
             <a routerLink="/fundtransfer" class="btn btn-link">Back</a>
-            <input type="submit" value="Submit" class="btn btn-success"/>
+            <input type="submit" value="Submit" (click)="actionMethod($event)" class="btn btn-success"/>
         </div>
 
     </form>
