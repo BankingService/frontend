@@ -4,11 +4,34 @@
 <!-- <p style="margin-left:15%;padding:1px 16px;">accountsummary works!{{msge.test1.blue}}</p> -->
 
 <div class="card bg-light mb-3" style="margin-left:16%;padding:1px 16px;margin-top: 10px;margin-right: 1%;">
-   <h3><div class="card-header">Welcome {{customerName}} !!</div></h3> 
-    <div class="card-body">
-      <h5 class="card-title">Customer Id: {{customerId}}</h5>
-      <h5 class="card-title">Account Number: {{accountNumber}}</h5>
-      <h5 class="card-title">IFSC: {{ifsc}}</h5>
-      <h5 class="card-title">Account Balance: {{balance}}</h5>
-    </div>
+  <h3>
+    <div class="card-header">Welcome {{customerName}} !!</div>
+  </h3>
+  <div class="card-body">
+    <h5 class="card-title">Customer Id: {{customerId}}</h5>
+    <h5 class="card-title">Account Number: {{accountNumber}}</h5>
+    <h5 class="card-title">IFSC: {{ifsc}}</h5>
+    <h5 class="card-title">Account Balance: {{balance}}</h5>
   </div>
+  <h3>Past 5 Transactions in a week</h3>
+  <table class="table table-bordered">
+    <tr>
+      <th>Date</th>
+      <th>TransactionId</th>
+      <th>Messaage</th>
+      <th>Transaction Amount</th>
+      <th>Transaction Type</th>
+      <th>Balance</th>
+    </tr>
+
+    <tr *ngFor="let transaction of transactionstatement[0];let i= index">
+      <td *ngIf='i<5'>{{transaction.date}}</td>
+      <td *ngIf='i<5'>{{transaction.transactionId}}</td>
+      <td *ngIf='i<5'>{{transaction.message}}</td>
+      <td *ngIf='i<5'>{{transaction.transactionAmount}}</td>
+      <td *ngIf='i<5'>{{transaction.transactionType}}</td>
+      <td *ngIf='i<5'>{{transaction. updatedBalance}}</td>
+    </tr>
+
+  </table>
+</div>

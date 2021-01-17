@@ -13,7 +13,7 @@ import { TransactionstatementService } from 'src/app/services/transactionstateme
 export class AccountstatementComponent implements OnInit {
   form: FormGroup;
   transactiondatetime: Transactiondatetime;
-  transactionstatement: any=[]
+  transactionstatement: any = []
 
   flag: boolean = false;
   error_messages = {
@@ -53,6 +53,7 @@ export class AccountstatementComponent implements OnInit {
     this.transaction.createTransactionStatementRequest(this.transactiondatetime).subscribe((data: {}) => {
       alert(JSON.stringify(data));
       this.transactionstatement.push(data);
+      this.transactionstatement[0].sort(this.GetSortOrder("date"));
       if (this.transactionstatement[0].length == 0) {
         alert("no transactions are done within selected date")
       }
@@ -67,6 +68,16 @@ export class AccountstatementComponent implements OnInit {
     // })
     // location from ip address
     // https://www.melissa.com/v2/lookups/iplocation/ip/223.182.242.158?fmt=json&id=
+  }
+  GetSortOrder(prop) {
+    return function (a, b) {
+      if (a[prop] > b[prop]) {
+        return -1;
+      } else if (a[prop] < b[prop]) {
+        return 1;
+      }
+      return 0;
+    }
   }
 }
 
