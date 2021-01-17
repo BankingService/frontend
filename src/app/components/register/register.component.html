@@ -10,8 +10,8 @@
 				<label for="staticEmail" class="col-sm-4 col-form-label">Enter Customer Id <span
 						style="color:red">*</span></label>
 				<div class="col-sm-6">
-					<input class="form-control" formControlName="customerId" type="text"
-						placeholder="Enter Customer Id" />
+					<input  type="text" formControlName="customerId" id="customerId"
+						placeholder="Enter Customer Id" class="form-control" required/>
 				</div>
 			</div>
 			<div class="error-messages">
@@ -31,8 +31,8 @@
 						style="color:red">*</span></label>
 
 				<div class="col-sm-6">
-					<input class="form-control" formControlName="loginPassword" type="password"
-						placeholder="Enter Login Password" />
+					<input type="password" class="form-control" formControlName="loginPassword" id="loginPassword"
+						placeholder="Enter Login Password" required/>
 				</div>
 			</div>
 			<div class="error-messages">
@@ -51,8 +51,8 @@
 						style="color:red">*</span></label>
 
 				<div class="col-sm-6">
-					<input class="form-control" formControlName="confirmLoginPassword" type="password"
-						placeholder="Enter Password" />
+					<input type="password" formControlName="confirmLoginPassword" id="confirmLoginPassword" class="form-control" 
+						placeholder="Enter Password" required/>
 				</div>
 			</div>
 			<div class="error-messages">
@@ -70,8 +70,8 @@
 						style="color:red">*</span></label>
 
 				<div class="col-sm-6">
-					<input class="form-control" formControlName="transactionPassword" type="password"
-						placeholder="Enter Transaction Password" />
+					<input type="password" formControlName="transactionPassword" id="transactionPassword" class="form-control"
+						placeholder="Enter Transaction Password" required/>
 				</div>
 			</div>
 			<div class="error-messages">
@@ -90,8 +90,8 @@
 						style="color:red">*</span></label>
 
 				<div class="col-sm-6">
-					<input class="form-control" formControlName="confirmTransactionPassword" type="password"
-						placeholder="Enter Password" />
+					<input type="password" id="confirmTransactionPassword" formControlName="confirmTransactionPassword" class="form-control" 
+						placeholder="Enter Password" required/>
 				</div>
 			</div>
 			<div class="error-messages">
@@ -108,8 +108,8 @@
 						style="color:red">*</span></label>
 
 				<div class="col-sm-6">
-					<input class="form-control" formControlName="profilePassword" type="password"
-						placeholder="Enter Profile Password" />
+					<input type="password" id="profilePassword" class="form-control" formControlName="profilePassword" 
+						placeholder="Enter Profile Password" required/>
 				</div>
 			</div>
 			<div class="error-messages">
@@ -128,8 +128,8 @@
 						style="color:red">*</span></label>
 
 				<div class="col-sm-6">
-					<input class="form-control" formControlName="confirmProfilePassword" type="password"
-						placeholder="Enter Password" />
+					<input type="password" id="confirmProfilePassword" class="form-control" formControlName="confirmProfilePassword" 
+						placeholder="Enter Password" required/>
 				</div>
 			</div>
 			<div class="error-messages">
@@ -144,7 +144,7 @@
 
 			<div class="form-group row" class="text-center">
 				<input type="button" class="btn btn-primary form-control " style="margin-bottom: 20px; width: 100px;"
-				  (click)="getOtp(form.value.customerId)" value="Proceed">
+				  (click)="getOtp(form.value.customerId)" value="Proceed"> 
 			</div>
 
 		  
@@ -155,7 +155,7 @@
 						style="color:red">*</span></label>
 
 				<div class="col-sm-6">
-					<input class="form-control" formControlName="otp" type="number" placeholder="Enter OTP" />
+					<input class="form-control" id="otp" formControlName="otp" type="number" placeholder="Enter OTP" required/>
 				</div>
 			</div>
 			<div class="error-messages">
@@ -171,7 +171,7 @@
 			<div class="wrapper" class="text-center">
 				<button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;"
 					
-					>Register</button>
+				[disabled]="form.invalid">Register</button>
 			</div>
 			<!-- [disabled]="!form.valid" -->
 		</div>

@@ -73,8 +73,6 @@ export class AccountsummaryComponent implements OnInit {
     }
     
   }
-
-  
   
 
 }
