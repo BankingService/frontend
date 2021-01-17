@@ -31,11 +31,18 @@ export class AccountstatementComponent implements OnInit {
     ],
   }
 
-  today = new Date().toJSON().split('T')[0];
+//  today = new Date().toJSON().split('T')[0];
+today1=new Date();
+     date=new Date();
+      dd = String(this.today1.getDate()).padStart(2, '0');
+       mm = String(this.today1.getMonth() + 1).padStart(2, '0'); //January is 0!
+       yyyy = this.today1.getFullYear();
+      today=this.yyyy+"-"+this.mm+"-"+this.dd;
  
-  constructor(private router: Router, private transaction: TransactionstatementService, private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private transaction: TransactionstatementService, private formBuilder: FormBuilder) {}
 
   ngOnInit() {
+
     this.form = this.formBuilder.group({
  
       fromdate: new FormControl('', Validators.compose([

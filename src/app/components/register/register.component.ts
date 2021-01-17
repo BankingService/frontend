@@ -188,7 +188,7 @@ export class RegisterComponent implements OnInit {
         }
         else
           this.message = response.message;
-          swal("Error Occured", "Please try again after sometime", "error");
+          swal("Error Occured", response.message, "error");
         alert(this.message)
       })
     }
@@ -203,13 +203,20 @@ export class RegisterComponent implements OnInit {
   flag: boolean = false;
 
   getOtp(id) {
-    this.flag = true;
+    
     console.log(id);
     // let temp=id;
     // sessionStorage.setItem('initialId',temp)
     this.otpservice.getOtpForRegistration(id).subscribe(response => {
-      alert(response.message)
+      //alert(response.message)
       this.message = response.message;
+      
+      if(response.status=="FAILURE"){
+        swal(response.message, "", "warning");
+      }else{
+        this.flag = true;
+        alert(response.message)
+      }
     })
   }
 
