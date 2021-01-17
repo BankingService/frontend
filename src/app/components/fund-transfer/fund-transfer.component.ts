@@ -7,12 +7,12 @@ import { TransactionstatementService } from 'src/app/services/transactionstateme
   styleUrls: ['./fund-transfer.component.css']
 })
 export class FundTransferComponent implements OnInit {
-  flag: boolean = false;
+  flag: boolean = true;
   constructor(private noOfBeneficiaries: TransactionstatementService) {
     this.noOfBeneficiaries.createNoOfBeneficiariesRequest(sessionStorage.getItem('customerId')).subscribe((data: []) => {
 
       if (data.length == 0) {
-        this.flag = true;
+        this.flag = false;
       }
 
     })
