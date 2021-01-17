@@ -44,4 +44,9 @@ export class UserService {
     let url = "http://localhost:8086/setnewpassword/"
     return this.http.post<any>(url,setnewpassword);
   }
+
+  getUpdatedBalance(customerId):Observable<any>{
+    let url= "http://localhost:8086/getAccountBalance/"+customerId;
+    return this.http.get<any>(url);
+  }
 }

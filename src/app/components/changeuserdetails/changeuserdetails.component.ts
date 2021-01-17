@@ -161,8 +161,6 @@ form:FormGroup
       ])),
       grossAnnualIncome:new FormControl('')
     });
-  
-    this.form.controls['mobileNumber'].disable();
     
   }
   loadDetails(){
@@ -199,15 +197,17 @@ form:FormGroup
 
   }
 
+  redirectTo()
+  {
+    this.router.navigate(['useraccount'])
+  }
+
+  
   addcustomerrequest(customerrequest){
     console.log(customerrequest)
-    alert(JSON.stringify(customerrequest));
     this.service.editDetails(customerrequest).subscribe(response =>
       { 
-        alert(JSON.stringify(response));
-          //  let cid=response.id;
-          //  let msg=response.msg;
-          //  alert(msg)
+        console.log(response)
          this.router.navigate(['useraccount']);
          })
   }

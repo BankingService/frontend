@@ -14,7 +14,6 @@ export class AccountsummaryComponent implements OnInit {
   transactiondatetime: Transactiondatetime;
   transactionstatement: any = [];
   flag: boolean = false;
-
   customerId = sessionStorage.customerId;
   customerName = sessionStorage.customerName;
   accountNumber = sessionStorage.accountNumber;
@@ -24,7 +23,7 @@ export class AccountsummaryComponent implements OnInit {
 
   ngOnInit() {
 
-
+  
     // let fromdate = formdata.value.fromdate;
     let date1 = new Date().toISOString().slice(0, 10);
     let date = new Date();
@@ -39,20 +38,21 @@ export class AccountsummaryComponent implements OnInit {
     //  let fromdate1=fromdate.toISOString().slice(0,10);
     //  fromdate1 = fromdate + "T00:00:00.001";
     //  alert(fromdate1);
-    alert(fromdate.toISOString().slice(0, 10) + "T00:00:00.001")
+   // alert(fromdate.toISOString().slice(0, 10) + "T00:00:00.001")
 
     this.transactiondatetime = new Transactiondatetime(fromdate.toISOString().slice(0, 10) + "T00:00:00.001", todate, sessionStorage.getItem('accountNumber'));
     this.transaction.createTransactionStatementRequest(this.transactiondatetime).subscribe((data: {}) => {
-      alert(JSON.stringify(data));
+   //   alert(JSON.stringify(data));
       this.transactionstatement.push(data);
       this.transactionstatement[0].sort(this.GetSortOrder("date"));
       if (this.transactionstatement[0].length == 0) {
-        alert("no transactions are done within selected date")
+    //    alert("no transactions are done within selected date")
       }
       else {
         this.flag = true;
       }
     })
+  
 
     // this.transaction.createTransactionRequest(this.transactiondatetime).subscribe((data: {}) => {
     //   alert(JSON.stringify(data))
@@ -60,6 +60,7 @@ export class AccountsummaryComponent implements OnInit {
     // })
     // location from ip address
     // https://www.melissa.com/v2/lookups/iplocation/ip/223.182.242.158?fmt=json&id=
+    
   }
   GetSortOrder(prop) {
     return function (a, b) {
@@ -70,6 +71,10 @@ export class AccountsummaryComponent implements OnInit {
       }
       return 0;
     }
+    
   }
+
+  
+  
 
 }
