@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-transaction-successful',
@@ -13,9 +14,13 @@ export class TransactionSuccessfulComponent implements OnInit {
   }
 
   ngOnInit() {
-    alert(this.details.updatedBalance + "hii there")
+    //alert(this.details.updatedBalance + "hii there")
     if(this.details.status=='SUCCESS'){
+      swal("Yes!", "Transaction Successful!!", "success");
     sessionStorage.setItem('balance',this.details.updatedBalance)
+    }
+    else{
+      swal("Some Error Occured", "Transaction failed!!", "error");
     }
   }
   changedir(){

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import swal from 'sweetalert';
  
 import { Transactiondatetime } from 'src/app/dtoClass/transactiondatetime';
 import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
@@ -61,7 +62,7 @@ export class AccountstatementComponent implements OnInit {
       this.transactionstatement.push(data);
       this.transactionstatement[0].sort(this.GetSortOrder("date"));
       if (this.transactionstatement[0].length == 0) {
-        alert("no transactions are done within selected date")
+        swal("Oops!!", "No Records Found", "info");
       }
       else {
         this.flag = true;

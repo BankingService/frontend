@@ -308,7 +308,8 @@ export class CreateAccountComponent implements OnInit {
         Validators.maxLength(30),
         Validators.pattern('^[0-9]*$')
       ])),
-      otp:new FormControl('')
+      otp:new FormControl(''),
+      checkBox:new FormControl('',Validators.requiredTrue)
 
       
     });
@@ -364,7 +365,8 @@ flag:boolean=false;
       {  alert(JSON.stringify(response));
            let cid=response.id;
            let msg=response.msg;
-           alert(msg)
+           alert(msg),
+           
          this.router.navigate(['createaccount2',{cid}]);
          })
   }
