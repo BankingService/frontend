@@ -20,9 +20,9 @@ export class RegisterComponent implements OnInit {
   error_messages = {
     'customerId': [
       { type: 'required', message: 'Customer Id is required.' },
-      { type: 'minlength', message: 'password length must be atleast 8' },
-      { type: 'maxlength', message: 'password length must be less than 8' },
-      { type: 'pattern', message: 'password must consist only number'}
+      { type: 'minlength', message: 'Customer Id  must be 8 digits' },
+      { type: 'maxlength', message: 'Customer Id  must be 8 digits' },
+      { type: 'pattern', message: 'Customer Id must consist only numbers'}
     ],
 
     // 'otp': [

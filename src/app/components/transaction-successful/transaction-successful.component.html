@@ -1,24 +1,24 @@
 <div *ngIf="details.status==='FAILURE'; else success" style="text-align: center;width:100%;color: red;margin-top: 90px;">
 
-  <h3 >{{details.status}}</h3><br>
-  <h3>{{details.message}}</h3><br>
-  <button class="btn btn-primary" (click)="changedir()">Ok</button>
-
-</div>
-<ng-template #success>
-<h3 style="text-align: center;width:100%;" >Transaction Successful</h3>
-<div class="frm">
-
-    <div class="input" *ngFor="let detail of details | keyvalue">
-        <div id="selector" style="font-family: Arial, Helvetica, sans-serif; font-size: 2vh;">
-           {{detail.key}}
-        </div>
-        <div style="font-family: Arial, Helvetica, sans-serif; font-size: 2vh;">
-            {{detail.value}}
-        </div>
-    </div>
-    <div class="form-group row" class="text-center">
-        <button class="btn btn-primary" (click)="changedir()">Ok</button>
-    </div>
-</div>
-</ng-template>
+    <h3 >{{details.status}}</h3><br>
+    <h3>{{details.message}}</h3><br>
+    <button class="btn btn-primary" (click)="changedir()">Ok</button>
+  
+  </div>
+  <ng-template #success>
+  <h3 style="text-align: center;width:100%;" >Transaction Successful</h3>
+  <div class="frm">
+  
+      <div class="input" *ngFor="let detail of details | keyvalue">
+          <div id="selector" style="font-family: Arial, Helvetica, sans-serif; font-size: 2vh;">
+             {{detail.key}}
+          </div>
+          <div style="font-family: Arial, Helvetica, sans-serif; font-size: 2vh;">
+              {{detail.value}}
+          </div>
+      </div>
+      <div class="form-group row" class="text-center">
+          <button class="btn btn-primary" (click)="changedir()">Ok</button>
+      </div>
+  </div>
+  </ng-template>

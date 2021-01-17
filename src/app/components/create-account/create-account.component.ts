@@ -361,7 +361,7 @@ flag:boolean=false;
   addcustomerrequest(customerrequest) {
     console.log(JSON.stringify(customerrequest))
     this.custservice.createCustomerRequest(customerrequest).subscribe(response =>
-      {  alert(JSON.stringify(response));
+      {  //alert(JSON.stringify(response));
            let cid=response.id;
            let msg=response.msg;
            alert(msg)
