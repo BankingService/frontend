@@ -4,6 +4,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { UserLogin } from 'src/app/modelClass/user-login';
 import { UserService } from 'src/app/services/user.service';
+import swal from 'sweetalert';
 
 
 @Component({
@@ -73,7 +74,7 @@ userlogin(form){
  // console.log(this.login)
   this.service.verifyUserLogin(this.login).subscribe(response =>
     { // alert(JSON.stringify(response));
-       console.log(response)
+      // console.log(response)
        if(response.status=='SUCCESS'){
          let customerId = response.customerId;
          let accountNumber = response.accountNumber;
@@ -91,7 +92,9 @@ userlogin(form){
        else
        {
        this.message = response.message;
-       alert(this.message)}
+       //alert(this.message)
+       swal(response.message,"", "error");
+      }
      })
 }
 }

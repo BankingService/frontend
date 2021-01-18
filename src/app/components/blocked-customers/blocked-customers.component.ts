@@ -9,14 +9,13 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
 })
 export class BlockedCustomersComponent implements OnInit {
 
-  adminName:string
-  customers:any=[]
-  constructor(private service:AdminServiceService, private route:ActivatedRoute, private router:Router) { }
+  adminName: string
+  customers: any = []
+  constructor(private service: AdminServiceService, private route: ActivatedRoute, private router: Router) { }
 
-  viewdets(cid)
-  {
+  viewdets(cid) {
     console.log(cid)
-  this.router.navigate(['/blockedcustdetails',{cid}]);
+    this.router.navigate(['/blockedcustdetails', { cid }]);
   }
 
   ngOnInit() {
@@ -25,8 +24,8 @@ export class BlockedCustomersComponent implements OnInit {
   }
 
 
-  loadBlocked(){
-    this.service.getBlockedCuts().subscribe((data: {}) => { this.customers = data})
+  loadBlocked() {
+    this.service.getBlockedCuts().subscribe((data: {}) => { this.customers = data })
   }
 
 }

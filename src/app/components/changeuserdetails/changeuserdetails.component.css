@@ -1,23 +1,18 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 
-   .container
-   {
-       display: flex;
-       
-   justify-content: center;
-   margin-top: 20px;
-   
-   }  
-   .card{
-     
-     
-     padding: 16px;
-    
-      text-align: left;
-   
-   }
-   .error-message {
+.card {
+    padding: 16px;
+    text-align: left;
+}
+
+.error-message {
     color: red;
-  }
-  input.ng-touched.ng-invalid {
+}
+
+input.ng-touched.ng-invalid {
     border: 1px solid red;
-  } 
+}

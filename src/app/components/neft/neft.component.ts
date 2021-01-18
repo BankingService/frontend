@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Transaction } from 'src/app/dtoClass/transaction';
 import { TransactionStatement } from 'src/app/modelClass/transaction-statement';
 import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-neft',
@@ -111,7 +112,8 @@ export class NeftComponent implements OnInit {
          this.route.navigate(['transsuccess']);
          })}
          else{
-          alert("invalid otp");
+          // alert("invalid otp");
+          swal("Invalid OTP","", "warning");
           this.route.navigated=false;
           this.route.navigate(['neft']);
          }
@@ -123,7 +125,7 @@ export class NeftComponent implements OnInit {
     this.transaction.getTransactionOtp(sessionStorage.getItem('customerId')).subscribe(response=>{
       
      this.otpMessage=response.message
-     alert(this.otpMessage)
+    //  alert(this.otpMessage)
       })
   }
  

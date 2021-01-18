@@ -75,91 +75,114 @@ form:FormGroup
   
 
      this.form = this.formBuilder.group({
-      title: new FormControl('',Validators.required),
-      firstName: new FormControl('', Validators.compose([
-        Validators.required
-      ])),
-      middleName: new FormControl('', Validators.required),
-      lastName: new FormControl('', Validators.compose([
-        Validators.required
-      ])),
-      fatherName: new FormControl('', Validators.compose([
-        Validators.required
-      ])),
+
+
+      title: new FormControl(''),
+      firstName: new FormControl(''),
+      middleName: new FormControl(''),
+      lastName: new FormControl(''),
+      fatherName: new FormControl(''),
   
-      mobileNumber: new FormControl('', Validators.compose([
+     mobileNumber: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(10),
-        Validators.maxLength(10)
+        Validators.maxLength(10),
+        Validators.pattern('^[0-9]*$')
 
       ])),
       emailId: new FormControl('', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(30),
+        Validators.pattern("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$")
       ])),
 
-      aadharCardNo: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(12),
-        Validators.maxLength(12)
-      ])),
+      aadharCardNo: new FormControl(''),
      
 
-      panNumber: new FormControl('', Validators.compose([
-        Validators.required
-      ])),
+      panNumber: new FormControl(''),
  
-      dateOfBirth: new FormControl('',Validators.compose([
-        Validators.required
-      ])),
+      dateOfBirth: new FormControl(''),
       cAddressLine1: new FormControl('', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(30)
       ])),
 
       cAddressLine2: new FormControl('', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(30)
       ])),
-      cLandMark:new FormControl(''),
-      
+      cLandMark: new FormControl('', Validators.compose([
+        Validators.minLength(3),
+        Validators.maxLength(30)
+      ])),
+
       cCity: new FormControl('', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(30)
       ])),
       cState: new FormControl('', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(15)
       ])),
       cPincode: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(6)
+        Validators.maxLength(6),
+        Validators.pattern('^[0-9]*$')
       ])),
 
       pAddressLine1: new FormControl('', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(30)
       ])),
 
       pAddressLine2: new FormControl('', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(30)
       ])),
-      pLandMark :new FormControl(''),
-      
+      pLandMark: new FormControl('', Validators.compose([
+        Validators.minLength(3),
+        Validators.maxLength(30)
+      ])),
+
       pCity: new FormControl('', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(30)
       ])),
       pState: new FormControl('', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(15)
       ])),
       pPincode: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(6)
+        Validators.maxLength(6),
+        Validators.pattern('^[0-9]*$')
       ])),
-      occupationType:new FormControl('', Validators.compose([
+      occupationType: new FormControl('', Validators.compose([
         Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(30)
       ])),
-
-      sourceOfIncome:new FormControl('', Validators.compose([
+      sourceOfIncome: new FormControl('', Validators.compose([
         Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(30)
       ])),
-      grossAnnualIncome:new FormControl('')
+      grossAnnualIncome: new FormControl('', Validators.compose([
+        Validators.minLength(4),
+        Validators.maxLength(30),
+        Validators.pattern('^[0-9]*$')
+      ]))
     });
     
   }

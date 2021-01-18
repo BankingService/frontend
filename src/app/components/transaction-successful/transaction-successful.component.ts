@@ -20,7 +20,7 @@ export class TransactionSuccessfulComponent implements OnInit {
     sessionStorage.setItem('balance',this.details.updatedBalance)
     }
     else{
-      swal("Some Error Occured", "Transaction failed!!", "error");
+      swal("Transaction failed!!", "", "error");
     }
   }
   changedir(){

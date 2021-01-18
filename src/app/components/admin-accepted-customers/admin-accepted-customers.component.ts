@@ -9,14 +9,13 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
 })
 export class AdminAcceptedCustomersComponent implements OnInit {
 
-  adminName:string
-  customers:any=[]
-  constructor(private service:AdminServiceService, private route:ActivatedRoute, private router:Router) { }
+  adminName: string
+  customers: any = []
+  constructor(private service: AdminServiceService, private route: ActivatedRoute, private router: Router) { }
 
-  viewdets(cid)
-  {
+  viewdets(cid) {
     console.log(cid)
-  this.router.navigate(['/activecustdetails',{cid}]);
+    this.router.navigate(['/activecustdetails', { cid }]);
   }
 
   ngOnInit() {
@@ -25,8 +24,8 @@ export class AdminAcceptedCustomersComponent implements OnInit {
   }
 
 
-  loadActive(){
-    this.service.getAcceptedCutomers().subscribe((data: {}) => { this.customers = data})
+  loadActive() {
+    this.service.getAcceptedCutomers().subscribe((data: {}) => { this.customers = data })
   }
 
 }

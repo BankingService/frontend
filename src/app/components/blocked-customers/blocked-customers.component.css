@@ -1,26 +1,30 @@
-.frm{
-    margin:auto;
-    border-style: groove;
-    width: 100vh;
-}
-.table thead{
-    background-color: #375369;
-    color: white;
-    text-align:center;
-}
-.ttbody{
-    text-align: center;
-}
-.th{
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
-  .frm{
-    margin:auto;
+.frm {
+    margin: auto;
     border-style: groove;
     width: 100vh;
 }
 
-button{
-    color:#375369;
+.table thead {
+    background-color: #375369;
+    color: white;
+    text-align: center;
+}
+
+.ttbody {
+    text-align: center;
+}
+
+.th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.frm {
+    margin: auto;
+    border-style: groove;
+    width: 100vh;
+}
+
+button {
+    color: #375369;
 }

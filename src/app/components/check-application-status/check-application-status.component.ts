@@ -31,7 +31,7 @@ export class CheckApplicationStatusComponent implements OnInit {
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(5),
-        Validators.pattern('^[0-9]*$') 
+        Validators.pattern('^[0-9]*$')
       ]))
     },
     );
@@ -44,7 +44,6 @@ export class CheckApplicationStatusComponent implements OnInit {
   }
 
   view(id) {
-    
     this.service.getAppStatus(id).subscribe(response => {
       swal(response.message, "", "info");
     })

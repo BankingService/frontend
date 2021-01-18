@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-blocked-customer-details',
@@ -34,17 +35,16 @@ export class BlockedCustomerDetailsComponent implements OnInit {
 
   sendAdminRemarks(remark) {
     this.service.unblockAction(this.adminId, this.cid, remark).subscribe(response => { //alert(JSON.stringify(response));
-
       this.message = response.message
       if (response.status == 'SUCCESS') {
         this.router.navigate(['/admindashboard'])
-        alert(this.message)
+        // alert(this.message)
+        swal(this.message,"", "info");
       }
       else {
-        alert(this.message)
+        // alert(this.message)
+        swal("Some Error Occured","", "error");
       }
-
-
     })
 
   }
