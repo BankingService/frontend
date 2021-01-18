@@ -189,6 +189,7 @@ export class RegisterComponent implements OnInit {
         else{
           this.message = response.message;
           swal("Error Occured", response.message, "error");
+          }
         alert(this.message)
         }
       })

@@ -65,16 +65,18 @@ export class ProfilepassComponent implements OnInit {
 
     this.profilecheck = new ProfilePassword(sessionStorage.customerId,adminformobj.value.profilePassword)
     console.log(this.profilecheck)
-    this.router.navigate(['useraccount'])
+    //this.router.navigate(['useraccount'])
     this.service.verifyProfile(this.profilecheck).subscribe(response =>
    {  //alert(JSON.stringify(response));
       if(response.status=='SUCCESS'){
+        alert("in success")
         this.message=response.message;
       this.router.navigate(['useraccount']);
       }
-      else
+      else{
       this.message = response.message;
       alert("password incorrect")
+    }
     })
 }
 

@@ -5,13 +5,14 @@ import { Router } from '@angular/router';
 import { UserLogin } from 'src/app/modelClass/user-login';
 import { UserService } from 'src/app/services/user.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+swal: any;
 form: FormGroup;
 error_messages = {
   'customerId': [

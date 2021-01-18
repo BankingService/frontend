@@ -1,8 +1,8 @@
 export class ProfilePassword {
     private customerId: number
-    private loginPassword: string
-    constructor(customerId: number, loginPassword: string) {
+    private profilePassword: string
+    constructor(customerId: number, profilePassword: string) {
         this.customerId = customerId
-        this.loginPassword = loginPassword
+        this.profilePassword = profilePassword
     }
 }
