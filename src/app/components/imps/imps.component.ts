@@ -142,7 +142,7 @@ export class ImpsComponent implements OnInit {
     this.transaction.getTransactionOtp(sessionStorage.getItem('customerId')).subscribe(response => {
 
       this.otpMessage = response.message
-      //alert(this.otpMessage)
+      // alert(this.otpMessage)   
     })
   }
 

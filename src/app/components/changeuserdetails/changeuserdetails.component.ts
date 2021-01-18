@@ -222,11 +222,7 @@ form:FormGroup
 
   redirectTo()
   {
-<<<<<<< HEAD
     this.router.navigate(['profilepass']);
-=======
-    this.router.navigate(['profilepass'])
->>>>>>> 4cde221e933edf1888af239ccd1b5dc54940c3ab
   }
 
   

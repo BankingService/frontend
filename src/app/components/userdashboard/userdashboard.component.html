@@ -1,20 +1,20 @@
 <app-dashboardsidebar></app-dashboardsidebar>
 
-    <div>
-      
-      <div class="topnav">
+<div>
+
+    <div class="topnav">
         <a href=# routerLink="/accountsummary" routerLinkActive="active">Account Summary</a>
         <!-- <li ><a class="link" href="#"   routerLink="/userdashboard" routerLinkActive="active" > Dashboard</a></li> -->
         <!-- <li ><a class="link" href="#" (click)="toggleactivelink(1)" routerLink="/profilepass" > AccountDetails</a></li> -->
-        <a class="link" href="#"  routerLink="/fundtransfer" routerLinkActive="active"> Fund Transfer</a>
-        <a class="link" href="#"  routerLink="/addBeneficiary" routerLinkActive="active">Add Beneficiary</a>
+        <a class="link" href="#" routerLink="/fundtransfer" routerLinkActive="active"> Fund Transfer</a>
+        <a class="link" href="#" routerLink="/addBeneficiary" routerLinkActive="active">Add Beneficiary</a>
         <a class="link" href="#" routerLink="/accountstatement" routerLinkActive="active"> Account Statement</a>
         <a href=# routerLink="/profilepass" routerLinkActive="active">View Profile</a>
         <a href=# routerLink="/setnewpassword" routerLinkActive="active">Change Password</a>
         <div class="topnav-right">
-          <a (click)="logoutconfirm()">LogOut</a>
+            <a (click)="logoutconfirm()">Logout</a>
         </div>
-      </div>
     </div>
-  
+</div>
+
 <router-outlet></router-outlet>

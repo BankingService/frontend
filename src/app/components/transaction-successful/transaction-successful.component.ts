@@ -17,7 +17,7 @@ export class TransactionSuccessfulComponent implements OnInit {
   ngOnInit() {
     this.preventBackButton();
     this.transactionTimer=setTimeout(() => {
-      this.router.navigate(['home']);
+      this.router.navigate(['accountsummary']);
     }, 5000);
     //alert(this.details.updatedBalance + "hii there")
     if(this.details.status=='SUCCESS'){

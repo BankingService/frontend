@@ -15,8 +15,7 @@
                 </select>
                 <div class="error-messages">
                     <ng-container *ngFor="let error of error_messages.fromAccount">
-                        <div class="error-message"
-                            *ngIf="form.get('fromAccount').hasError(error.type) && (form.get('fromAccount').dirty || form.get('fromAccount').touched)">
+                        <div class="error-message" *ngIf="form.get('fromAccount').hasError(error.type) && (form.get('fromAccount').dirty || form.get('fromAccount').touched)">
                             {{ error.message }}
                         </div>
                     </ng-container>
@@ -40,8 +39,7 @@
 
                     <div class="error-messages">
                         <ng-container *ngFor="let error of error_messages.toAccount">
-                            <div class="error-message"
-                                *ngIf="form.get('toAccount').hasError(error.type) && (form.get('toAccount').dirty || form.get('toAccount').touched)">
+                            <div class="error-message" *ngIf="form.get('toAccount').hasError(error.type) && (form.get('toAccount').dirty || form.get('toAccount').touched)">
                                 {{ error.message }}
                             </div>
                         </ng-container>
@@ -58,8 +56,7 @@
                 <input type="text" id="amount" class="form-control" formControlName="amount">
                 <div class="error-messages">
                     <ng-container *ngFor="let error of error_messages.amount">
-                        <div class="error-message"
-                            *ngIf="form.get('amount').hasError(error.type) && (form.get('amount').dirty || form.get('amount').touched)">
+                        <div class="error-message" *ngIf="form.get('amount').hasError(error.type) && (form.get('amount').dirty || form.get('amount').touched)">
                             {{ error.message }}
 
                         </div>
@@ -79,8 +76,7 @@
         </div>
         <div class="error-messages">
             <ng-container *ngFor="let error of error_messages.remark">
-                <div class="error-message"
-                    *ngIf="form.get('remark').hasError(error.type) && (form.get('remark').dirty || form.get('remark').touched)">
+                <div class="error-message" *ngIf="form.get('remark').hasError(error.type) && (form.get('remark').dirty || form.get('remark').touched)">
                     {{ error.message }}
 
                 </div>
@@ -102,8 +98,7 @@
                 </div>
                 <div class="error-messages">
                     <ng-container *ngFor="let error of error_messages.transactionPwd">
-                        <div class="error-message"
-                            *ngIf="form.get('transactionPwd').hasError(error.type) && (form.get('transactionPwd').dirty || form.get('transactionPwd').touched)">
+                        <div class="error-message" *ngIf="form.get('transactionPwd').hasError(error.type) && (form.get('transactionPwd').dirty || form.get('transactionPwd').touched)">
                             {{ error.message }}
 
                         </div>
@@ -112,14 +107,13 @@
             </div>
 
             <div id=selector>
-                Enter OTP sent on your registered mobile no/email:
+                Enter OTP sent on your registered email:
             </div>
             <div>
                 <input type="text" id="otp" class="form-control" formControlName="otp">
                 <div class="error-messages">
                     <ng-container *ngFor="let error of error_messages.otp">
-                        <div class="error-message"
-                            *ngIf="form.get('otp').hasError(error.type) && (form.get('otp').dirty || form.get('otp').touched)">
+                        <div class="error-message" *ngIf="form.get('otp').hasError(error.type) && (form.get('otp').dirty || form.get('otp').touched)">
                             {{ error.message }}
 
                         </div>
@@ -129,7 +123,7 @@
         </div>
         <div class=input *ngIf="flag==true">
             <a routerLink="/fundtransfer" class="btn btn-link">Back</a>
-            <input type="submit" value="Submit" class="btn btn-success"/>
+            <input type="submit" value="Submit" class="btn btn-success" />
         </div>
 
     </form>
