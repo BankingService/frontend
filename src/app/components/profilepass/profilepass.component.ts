@@ -72,9 +72,10 @@ export class ProfilepassComponent implements OnInit {
         this.message=response.message;
       this.router.navigate(['useraccount']);
       }
-      else
+      else{
       this.message = response.message;
       alert("password incorrect")
+    }
     })
 }
 
