@@ -171,19 +171,19 @@ export class RegisterComponent implements OnInit {
   message: string
   Registration(form) {
     this.register = new Register(form.value.customerId, form.value.loginPassword, form.value.transactionPassword, form.value.profilePassword)
-    console.log(this.register)
+   // console.log(this.register)
     let otp = form.value.otp
-    console.log(otp)
+    //console.log(otp)
     if (otp == this.message) {
      // alert("verified");
 
       this.service.registerUser(this.register).subscribe(response => {
      //   alert(JSON.stringify(response));
-        console.log(response)
+        //console.log(response)
         if (response.status == 'SUCCESS') {
           swal("Registerd Successfully!!", "", "success");
           this.message = response.message;
-          alert(this.message)
+          //alert(this.message)
           this.router.navigate(['home']);
         }
         else{
@@ -194,7 +194,8 @@ export class RegisterComponent implements OnInit {
       })
     }
     else {
-      alert("Invalid OTP")
+      // alert("Invalid OTP")
+      swal("Invalid OTP","", "warning");
       this.router.navigated = false;
       this.router.navigate(['register']);
     }
@@ -205,7 +206,7 @@ export class RegisterComponent implements OnInit {
 
   getOtp(id) {
     
-    console.log(id);
+    // console.log(id);
     // let temp=id;
     // sessionStorage.setItem('initialId',temp)
     this.otpservice.getOtpForRegistration(id).subscribe(response => {
@@ -216,7 +217,7 @@ export class RegisterComponent implements OnInit {
         swal(response.message, "", "warning");
       }else{
         this.flag = true;
-        alert(response.message)
+        // alert(response.message)
       }
     })
   }

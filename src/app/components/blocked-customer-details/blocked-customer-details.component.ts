@@ -39,11 +39,11 @@ export class BlockedCustomerDetailsComponent implements OnInit {
       if (response.status == 'SUCCESS') {
         this.router.navigate(['/admindashboard'])
         // alert(this.message)
-        swal("Approved!", "", "success");
+        swal(this.message,"", "info");
       }
       else {
         // alert(this.message)
-        swal("Some Error Occured", "", "error");
+        swal("Some Error Occured","", "error");
       }
     })
 

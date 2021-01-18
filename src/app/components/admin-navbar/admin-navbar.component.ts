@@ -19,11 +19,11 @@ export class AdminNavbarComponent implements OnInit {
       title: "Are you sure want to logout?",
       text: "",
       icon: "warning",
-      buttons: ["sure","cancel"],
+      buttons: ["Cancel","Sure"],
       dangerMode: true,
     })
     .then((willDelete) => {
-      if (!willDelete) {
+      if (willDelete) {
         sessionStorage.clear();
         this.router.navigate(['adminlogin']);
       } else {

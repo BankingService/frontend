@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Customerinfo } from 'src/app/modelClass/customerinfo';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-customer-details',
@@ -43,12 +43,14 @@ export class CustomerDetailsComponent implements OnInit {
     this.service.performAction(this.adminId, this.refid, remark).subscribe(response => { //alert(JSON.stringify(response));
       this.message = response.message
       if (response.status == ('SUCCESS')) {
-        alert(this.message)
+        // alert(this.message)
+        swal(this.message, "", "info");
         this.router.navigate(['/admindashboard'])
 
       }
       else {
-        alert(this.message)
+        // alert(this.message)
+        swal(this.message,"", "error");
       }
 
 
