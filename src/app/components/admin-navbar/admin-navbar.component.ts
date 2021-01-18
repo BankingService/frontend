@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-admin-navbar',
@@ -8,16 +9,30 @@ import { Router } from '@angular/router';
 })
 export class AdminNavbarComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-  logoutconfirm(){
-    
-    if(confirm("are you sure")){
-      sessionStorage.clear();
-      this.router.navigate(['adminlogin']);
-    }
-    
+  
+  logoutconfirm() {
+    swal({
+      title: "Are you sure want to logout?",
+      text: "",
+      icon: "warning",
+      buttons: ["sure","cancel"],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (!willDelete) {
+        sessionStorage.clear();
+        this.router.navigate(['adminlogin']);
+      } else {
+            
+      }
+    });
+    // if (confirm("are you sure")) {
+    //   sessionStorage.clear();
+    //   this.router.navigate(['adminlogin']);
+    // }
   }
 }

@@ -24,7 +24,7 @@ export class AddBeneficiaryComponent implements OnInit {
       { type: 'required', message: 'Account number is required.' },
       { type: 'minlength', message: ' length too small' },
       { type: 'maxlength', message: 'Exceeds length limit' },
-      { type: 'pattern', message: 'account number must consist of only numbers'}
+      { type: 'pattern', message: 'account number must consist of only numbers' }
     ],
 
 
@@ -40,19 +40,19 @@ export class AddBeneficiaryComponent implements OnInit {
       { type: 'required', message: 'ifsc is required.' },
       { type: 'minlength', message: 'ifsc length too small' },
       { type: 'maxlength', message: 'Exceeds  length limit' },
-      { type: 'pattern', message: 'ifsc must consist of letters and numbers'}
+      { type: 'pattern', message: 'ifsc must consist of letters and numbers' }
     ],
     'name': [
       { type: 'required', message: 'name is required.' },
       { type: 'minlength', message: 'name length too small' },
       { type: 'maxlength', message: 'Exceeds length limit' },
-      { type: 'pattern', message: 'name must consist of letters'}
+      { type: 'pattern', message: 'name must consist of letters' }
     ],
     'nickName': [
       { type: 'required', message: 'nickname is required.' },
       { type: 'minlength', message: ' length too small' },
       { type: 'maxlength', message: 'Exceeds  length limit' },
-      { type: 'pattern', message: 'nickname must consist of letters'}
+      { type: 'pattern', message: 'nickname must consist of letters' }
     ]
 
   }
@@ -60,7 +60,7 @@ export class AddBeneficiaryComponent implements OnInit {
   constructor(private service: TransactionstatementService, private router: Router) { }
 
   ngOnInit() {
-    this.form= new FormGroup({
+    this.form = new FormGroup({
       accountNo: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(8),
@@ -80,18 +80,18 @@ export class AddBeneficiaryComponent implements OnInit {
         Validators.maxLength(12),
         Validators.pattern("[a-zA-Z][a-zA-Z]+[0-9]*")
       ])),
-      name: new FormControl('',Validators.compose([
-        Validators.required, 
+      name: new FormControl('', Validators.compose([
+        Validators.required,
         Validators.minLength(2),
         Validators.maxLength(30),
         Validators.pattern("^[a-zA-Z _]*$")
       ])),
-      nickName: new FormControl('',Validators.compose( [
-        Validators.required, 
+      nickName: new FormControl('', Validators.compose([
+        Validators.required,
         Validators.pattern("[a-zA-Z][a-zA-Z]+")
       ])),
-      otp: new FormControl('',Validators.compose([
-        Validators.required, 
+      otp: new FormControl('', Validators.compose([
+        Validators.required,
         Validators.pattern("[0-9]*")
       ])),
     })
@@ -106,28 +106,27 @@ export class AddBeneficiaryComponent implements OnInit {
 
       this.beneficiary = new Beneficiary(this.customerId, f.value.accountNo, f.value.name,
         f.value.nickName, f.value.ifsc)
-
-      console.log(f.value.accountNo)
-
-      console.log(JSON.stringify(this.beneficiary));
+      // console.log(f.value.accountNo)
+      // console.log(JSON.stringify(this.beneficiary));
       this.service.createBeneficiaryRequest(this.beneficiary).subscribe(response => {
-       // alert(JSON.stringify(response))
-       swal("Beneficiary added Successfully!!", "", "success");
-       this.router.navigate(['fundtransfer'])
+        // alert(JSON.stringify(response))
+        swal("Beneficiary added Successfully!!", "", "success");
+        this.router.navigate(['fundtransfer'])
       })
     }
     else {
-      alert("Invalid OTP")
+      // alert("Invalid OTP")
+      swal("Invalid OTP", "", "warning");
       this.router.navigated = false;
       this.router.navigate(['addBeneficiary'])
     }
-
   }
+  
   getOtp() {
     this.flag = true;
     this.service.getBeneficiaryOtp(this.customerId).subscribe(response => {
       this.otpmessage = response.message
-      alert(this.otpmessage)
+      // alert(this.otpmessage)
     })
 
   }

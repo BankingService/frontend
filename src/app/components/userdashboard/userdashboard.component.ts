@@ -27,8 +27,7 @@ export class UserdashboardComponent implements OnInit {
         
         this.router.navigate(['logout']);
       } else {
-        
-        
+         
       }
     });
     

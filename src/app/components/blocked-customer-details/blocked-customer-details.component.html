@@ -6,7 +6,7 @@
     td {
         border-collapse: collapse;
     }
-
+    
     th,
     td {
         padding: 10px;
@@ -19,7 +19,9 @@
 
     <div class="input" *ngFor="let cust of custdetails">
         <table style="width:100%">
-            <tr><th colspan="2" style="text-align: center;"><b>Personal Details</b></th></tr><br>
+            <tr>
+                <th colspan="2" style="text-align: center;"><b>Personal Details</b></th>
+            </tr><br>
             <tr>
                 <th>Title:</th>
                 <td>{{cust.title}}</td>
@@ -50,7 +52,7 @@
             </tr>
             <tr>
                 <th>Aadhar Card File:</th>
-                <td><img style="height:300px; width: 300px;" src="http://localhost:8086/downloads/{{cust.customerDoc.aadharCard}}"/>
+                <td><img style="height:300px; width: 300px;" src="http://localhost:8086/downloads/{{cust.customerDoc.aadharCard}}" />
 
             </tr>
             <tr>
@@ -59,14 +61,16 @@
             </tr>
             <tr>
                 <th>PAN Card File::</th>
-                <td><img style="height:300px; width: 300px;"  src="http://localhost:8086/downloads/{{cust.customerDoc.panCard}}"/>
+                <td><img style="height:300px; width: 300px;" src="http://localhost:8086/downloads/{{cust.customerDoc.panCard}}" />
 
             </tr>
             <tr>
                 <th>Date of Birth:</th>
                 <td>{{cust.dateOfBirth}}</td>
             </tr><br>
-            <tr><th colspan="2" style="text-align: center;"><b>Resedential Address</b></th></tr>
+            <tr>
+                <th colspan="2" style="text-align: center;"><b>Resedential Address</b></th>
+            </tr>
             <br>
             <tr>
                 <th>Address Line 1:</th>
@@ -123,7 +127,9 @@
                 <td>{{cust.address.pPincode}}</td>
             </tr>
             <br>
-            <tr><th colspan="2" style="text-align: center;"><b>Occupation Details</b></th></tr><br>
+            <tr>
+                <th colspan="2" style="text-align: center;"><b>Occupation Details</b></th>
+            </tr><br>
             <tr>
 
                 <th>Occupation Type:</th>
@@ -141,10 +147,8 @@
         </table>
     </div>
     <button class="btn btn-light" type="button" (click)="redirectTo()" style="margin: 20px; width: 100px;">Back</button>
-    <button class="btn btn-success" type="button" (click)="sendAdminRemarks('Accepted')"
-        style="margin: 20px; width: 100px;">Unblock</button>
-    <button class="btn btn-danger" type="button" (click)="sendAdminRemarks('Reject')"
-        style="margin: 20px; width: 100px;">Reject</button><br>
+    <button class="btn btn-success" type="button" (click)="sendAdminRemarks('Accepted')" style="margin: 20px; width: 100px;">Unblock</button>
+    <button class="btn btn-danger" type="button" (click)="sendAdminRemarks('Reject')" style="margin: 20px; width: 100px;">Reject</button><br>
 </div>
 
 <router-outlet></router-outlet>
