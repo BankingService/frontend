@@ -199,7 +199,7 @@ form:FormGroup
 
   redirectTo()
   {
-    this.router.navigate(['useraccount'])
+    this.router.navigate(['profilepass']);
   }
 
   

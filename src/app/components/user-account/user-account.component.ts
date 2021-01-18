@@ -32,6 +32,7 @@ export class UserAccountComponent implements OnInit {
   }
   redirectTo2()
   {
+    
     this.router.navigate(['/changedetails'])
   }
 

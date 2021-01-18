@@ -74,6 +74,7 @@ export class ProfilepassComponent implements OnInit {
         this.message=response.message;
       this.router.navigate(['useraccount']);
       }
+      
       else{
       this.message = response.message;
       swal("Invalid Profile Password","", "warning");

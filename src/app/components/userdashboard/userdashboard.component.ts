@@ -9,9 +9,15 @@ import swal from 'sweetalert';
 })
 export class UserdashboardComponent implements OnInit {
 
+  private timeout;
   constructor(private router:Router) { }
 
   ngOnInit() {
+    // this.timeout = setTimeout(() => {
+
+    //   // alert("hi there");
+    //   this.router.navigate(['logout']);
+    // }, 20000);
   }
 
    logoutconfirm(){
@@ -36,5 +42,8 @@ export class UserdashboardComponent implements OnInit {
     // }
     
   }
+  ngOnDestroy(){
+    // clearTimeout(this.timeout);
+ }
 
 }
