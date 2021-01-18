@@ -190,9 +190,7 @@ export class RegisterComponent implements OnInit {
           this.message = response.message;
           swal("Error Occured", response.message, "error");
           }
-        alert(this.message)
-        }
-      })
+        })
     }
     else {
       alert("Invalid OTP")
