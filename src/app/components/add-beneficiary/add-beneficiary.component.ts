@@ -100,6 +100,7 @@ export class AddBeneficiaryComponent implements OnInit {
   }
 
   customerId = sessionStorage.customerId
+  message:any
 
   addBeneficiary(f) {
     if (f.value.otp == this.otpmessage) {
