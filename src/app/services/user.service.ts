@@ -25,7 +25,7 @@ export class UserService {
 
   verifyProfile(profilepass): Observable<any>  {
    // console.log(login);
-    let url = "http://localhost:8086/userLogin";
+    let url = "http://localhost:8086/viewProfile";
    return this.http.post<any>(url,profilepass ); 
   }
 
