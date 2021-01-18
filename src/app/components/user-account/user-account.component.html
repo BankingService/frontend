@@ -16,9 +16,11 @@
 <h2 style="text-align: center;width:100%;">Your Details</h2>
 
 <div class="frm">
-    <div class="input" *ngFor = "let cust of custdetails">
+    <div class="input" *ngFor="let cust of custdetails">
         <table style="width:100%">
-            <tr><th colspan="2" style="text-align: center;"><b>Personal Details</b></th></tr><br>
+            <tr>
+                <th colspan="2" style="text-align: center;"><b>Personal Details</b></th>
+            </tr><br>
             <tr>
                 <th>Title:</th>
                 <td>{{cust.title}}</td>
@@ -53,7 +55,8 @@
             </tr>
             <tr>
                 <th>Aadhar Card File:</th>
-                <td><img style="height:300px; width: 300px;" src="http://localhost:8086/downloads/{{ cust.customerDoc.aadharCard }}">
+                <td><img style="height:300px; width: 300px;"
+                        src="http://localhost:8086/downloads/{{ cust.customerDoc.aadharCard }}">
                 </td>
             </tr>
             <tr>
@@ -62,15 +65,19 @@
             </tr>
             <tr>
                 <th>PAN Card File:</th>
-                <td><img style="height:300px; width: 300px;" src="http://localhost:8086/downloads/{{ cust.customerDoc.panCard }}">
+                <td><img style="height:300px; width: 300px;"
+                        src="http://localhost:8086/downloads/{{ cust.customerDoc.panCard }}">
                 </td>
             </tr>
             <tr>
                 <th>Date of Birth:</th>
                 <td>{{cust.dateOfBirth}}</td>
             </tr><br>
-            <tr><th colspan="2" style="text-align: center;"><b>Resedential Address</b></th></tr>
-            <br>   <tr>
+            <tr>
+                <th colspan="2" style="text-align: center;"><b>Resedential Address</b></th>
+            </tr>
+            <br>
+            <tr>
                 <th>Address Line 1:</th>
                 <td>{{cust.address.cAddressLine1}}</td>
             </tr>
@@ -96,9 +103,12 @@
                 <td>{{cust.address.cPincode}}</td>
             </tr>
             <br>
-            <tr><th colspan="2" style="text-align: center;"><b>Permanent Address</b></th></tr><br>
-            <br>     <tr>
-               
+            <tr>
+                <th colspan="2" style="text-align: center;"><b>Permanent Address</b></th>
+            </tr><br>
+            <br>
+            <tr>
+
                 <th>Address Line 1:</th>
                 <td>{{cust.address.pAddressLine1}}</td>
             </tr>
@@ -124,7 +134,9 @@
                 <td>{{cust.address.pPincode}}</td>
             </tr>
             <br>
-            <tr><th colspan="2" style="text-align: center;"><b>Occupation Details</b></th></tr><br>
+            <tr>
+                <th colspan="2" style="text-align: center;"><b>Occupation Details</b></th>
+            </tr><br>
             <tr>
 
                 <th>Occupation Type:</th>
@@ -142,6 +154,7 @@
         </table>
     </div>
     <button class="btn btn-light" type="button" (click)="redirectTo()" style="margin: 20px; width: 100px;">Back</button>
-    <button class="btn btn-success" type="button" (click)="redirectTo2()" style="margin: 20px; width: 100px;">Edit</button>
-    
+    <button class="btn btn-success" type="button" (click)="redirectTo2()"
+        style="margin: 20px; width: 100px;">Edit</button>
+
 </div>

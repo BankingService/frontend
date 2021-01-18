@@ -100,6 +100,7 @@ export class AddBeneficiaryComponent implements OnInit {
   }
 
   customerId = sessionStorage.customerId
+  message:any
 
   addBeneficiary(f) {
     if (f.value.otp == this.otpmessage) {
@@ -110,8 +111,17 @@ export class AddBeneficiaryComponent implements OnInit {
       // console.log(JSON.stringify(this.beneficiary));
       this.service.createBeneficiaryRequest(this.beneficiary).subscribe(response => {
         // alert(JSON.stringify(response))
-        swal("Beneficiary added Successfully!!", "", "success");
-        this.router.navigate(['fundtransfer'])
+        if(response.status=="SUCCESS")
+        {
+          if(response.message=="Beneficiary Added"){ 
+            swal("Beneficiary added Successfully!!", "", "success");
+          }
+          else{
+            swal(response.message,"" ,"info");
+          }
+          this.router.navigate(['fundtransfer'])
+        }
+     
       })
     }
     else {
