@@ -34,11 +34,11 @@ export class CreateAccount2Component implements OnInit {
     this.form = this.formBuilder.group({
       aadharCard: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^.+\.(([pP][dD][fF])|([jJ][pP][gG])|([pP][nN][gG]))$')
+        Validators.pattern('^.*\.(jpg|jpeg|JPG|gif|GIF|doc|DOC|pdf|PDF)$')
       ])),
       panCard: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^.+\.(([pP][dD][fF])|([jJ][pP][gG])|([pP][nN][gG]))$')
+        Validators.pattern('^.*\.(jpg|jpeg|JPG|gif|GIF|doc|DOC|pdf|PDF)$')
       ])),
       
   }); 
