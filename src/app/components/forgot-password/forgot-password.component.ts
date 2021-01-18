@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { OtpserviceService } from 'src/app/services/otpservice.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-forgot-password',
@@ -80,19 +80,25 @@ export class ForgotPasswordComponent implements OnInit {
     let temp=id;
     localStorage.setItem('initialId',temp)
     this.service.getOtp(id).subscribe(response => {
-      alert(response.message)
+      //alert(response.message)
+      if(response.status=="FAILURE"){
+        swal(response.message, "", "error");
+        this.flag=false;
+        }
       this.message = response.message;})
   }
 
   verifyotp(otp){
     console.log(otp)
     if(otp==this.message){
-        alert("verified");
+        //alert("verified");
+        // swal("Verified!", "", "success");
         this.router.navigate(['setnewpasswordbeforelogin']);
       }
       else
       {
-        alert("Invalid OTP")
+        // alert("Invalid OTP")
+        swal("Invalid OTP", "", "warning");
         this.router.navigated=false;
         this.router.navigate(['forgotpass']);
       }

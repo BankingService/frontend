@@ -7,9 +7,11 @@
             <div id=selector>
                 Beneficiary Type:
             </div>
+
             <div id=value>
                 Transfer using NEFT/IMPS/RTGS
             </div>
+
         </div>
         <div class=input>
             <div id=selector>
@@ -19,15 +21,14 @@
                 <input type="text" id="accountNo" class="form-control" formControlName="accountNo">
                 <div class="error-messages">
                     <ng-container *ngFor="let error of error_messages.accountNo">
-                        <div class="error-message"
-                            *ngIf="form.get('accountNo').hasError(error.type) && (form.get('accountNo').dirty || form.get('accountNo').touched)">
+                        <div class="error-message" *ngIf="form.get('accountNo').hasError(error.type) && (form.get('accountNo').dirty || form.get('accountNo').touched)">
                             {{ error.message }}
-
                         </div>
                     </ng-container>
                 </div>
             </div>
         </div>
+
         <div class=input>
             <div id=selector>
                 Re-Enter Beneficiary Account No:
@@ -36,15 +37,14 @@
                 <input type="text" id="reAccountNo" class="form-control" formControlName="reAccountNo">
                 <div class="error-messages">
                     <ng-container *ngFor="let error of error_messages.reAccountNo">
-                        <div class="error-message"
-                            *ngIf="form.get('reAccountNo').hasError(error.type) && (form.get('reAccountNo').dirty || form.get('reAccountNo').touched)">
+                        <div class="error-message" *ngIf="form.get('reAccountNo').hasError(error.type) && (form.get('reAccountNo').dirty || form.get('reAccountNo').touched)">
                             {{ error.message }}
-
                         </div>
                     </ng-container>
                 </div>
             </div>
         </div>
+
         <div class=input>
             <div id=selector>
                 Beneficiary IFSC Code:
@@ -53,14 +53,14 @@
                 <input type="text" id="ifsc" class="form-control" formControlName="ifsc">
                 <div class="error-messages">
                     <ng-container *ngFor="let error of error_messages.ifsc">
-                        <div class="error-message"
-                            *ngIf="form.get('ifsc').hasError(error.type) && (form.get('ifsc').dirty || form.get('ifsc').touched)">
+                        <div class="error-message" *ngIf="form.get('ifsc').hasError(error.type) && (form.get('ifsc').dirty || form.get('ifsc').touched)">
                             {{ error.message }}
                         </div>
                     </ng-container>
                 </div>
             </div>
         </div>
+
         <div class=input>
             <div id=selector>
                 Beneficiary Name:
@@ -69,8 +69,7 @@
                 <input type="text" id="name" class="form-control" formControlName="name">
                 <div class="error-messages">
                     <ng-container *ngFor="let error of error_messages.name">
-                        <div class="error-message"
-                            *ngIf="form.get('name').hasError(error.type) && (form.get('name').dirty || form.get('name').touched)">
+                        <div class="error-message" *ngIf="form.get('name').hasError(error.type) && (form.get('name').dirty || form.get('name').touched)">
                             {{ error.message }}
                         </div>
                     </ng-container>
@@ -86,8 +85,7 @@
                 <input type="text" id="nickName" class="form-control" formControlName="nickName">
                 <div class="error-messages">
                     <ng-container *ngFor="let error of error_messages.nickName">
-                        <div class="error-message"
-                            *ngIf="form.get('nickName').hasError(error.type) && (form.get('nickName').dirty || form.get('nickName').touched)">
+                        <div class="error-message" *ngIf="form.get('nickName').hasError(error.type) && (form.get('nickName').dirty || form.get('nickName').touched)">
                             {{ error.message }}
                         </div>
                     </ng-container>
@@ -96,7 +94,7 @@
         </div>
 
         <div class=input>
-            <a routerLink="/accountsummary" class = "btn btn-link">Back</a>
+            <a routerLink="/accountsummary" class="btn btn-link">Back</a>
             <input type="button" value="Continue" (click)="getOtp()" class="btn btn-success">
         </div>
         <div class=input *ngIf="flag==true">
@@ -111,7 +109,7 @@
             </div>
         </div>
         <div class=input *ngIf="flag==true">
-            <a routerLink="/accountsummary" class = "btn btn-link">Back</a>
+            <a routerLink="/accountsummary" class="btn btn-link">Back</a>
             <input type="submit" value="Submit" class="btn btn-success" />
         </div>
 

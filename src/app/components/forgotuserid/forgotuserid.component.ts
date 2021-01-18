@@ -84,7 +84,11 @@ export class ForgotuseridComponent implements OnInit {
     this.customerId = id;
 
     this.service.getOtpByAccountNumber(id).subscribe(response => {
-      alert(response.message)
+      // alert(response.message)
+      if(response.status=="FAILURE"){
+      swal(response.message, "", "error");
+      this.flag=false;
+      }
       this.message = response.message;
     })
   }
@@ -92,20 +96,20 @@ export class ForgotuseridComponent implements OnInit {
   verifyotp(otp) {
     console.log(otp)
     if (otp == this.message) {
-      alert("verified");
       this.service.verifyOtpByAccountNumber(this.customerId).subscribe(response => {
-        alert(response.message)
+        // alert(response.message)
         this.message = response.message
         if (response.status == 'SUCCESS'){
           swal("Customer Id is verified Successfully!!", "plese check mail after sometime", "success");
         }else{
-          swal("Error Occured", "Please try again after sometime", "error");
+          swal("Please try again after sometime", "", "error");
         }
       })
       this.router.navigate(['login']);
     }
     else {
-      alert("Invalid OTP")
+      // alert("Invalid OTP")
+      swal("Invalid OTP", "", "warning");
       this.router.navigated = false;
       this.router.navigate(['forgotuserid']);
     }

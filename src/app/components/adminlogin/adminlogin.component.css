@@ -1,44 +1,36 @@
-.form{
-       
-    margin-top:10px;
-        
-      margin-left:60px;
-   
-   }
-   .wrapper
-   {
-       display: flex;
-       
-   justify-content: center;
-   margin-top: 20px;
-   
-   }  
-   .card{
-     
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-     
-     padding: 16px;
-    
-      text-align: left;
-     
-     
-   
-   }
-   .error-message {
+.form {
+    margin-top: 10px;
+    margin-left: 60px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: left;
+}
+
+.error-message {
     color: red;
-  }
-  input.ng-touched.ng-invalid {
+}
+
+input.ng-touched.ng-invalid {
     border: 1px solid red;
-  } */
+}
 
-  .header{
+.header {
     text-align: center;
 }
 
-.loginfeilds{
+.loginfeilds {
     text-align: center;
 }
 
-button{
+button {
     margin-left: 10px;
 }

@@ -18,14 +18,14 @@ export class UserService {
 
 
   registerUser(register: Register): Observable<any>  {
-    console.log(register);
+    // console.log(register);
     let url = "http://localhost:8086/register/";
    return this.http.post<any>(url, register); 
   }
 
   verifyProfile(profilepass): Observable<any>  {
    // console.log(login);
-    let url = "http://localhost:8086/userLogin";
+    let url = "http://localhost:8086/viewProfile";
    return this.http.post<any>(url,profilepass ); 
   }
 

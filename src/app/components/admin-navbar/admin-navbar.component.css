@@ -4,26 +4,24 @@
 }
 
 .topnav a {
-  float: left;
-  color: #375369;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+    float: left;
+    color: #375369;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
 }
 
-
 .topnav a:hover {
-  background-color: #375369;
-  color: white;
+    background-color: #375369;
+    color: white;
 }
 
 .topnav a.active {
-  background-color: #375369;
-  color: white;
+    background-color: #375369;
+    color: white;
 }
 
-
 .topnav-right {
-  float: right;
+    float: right;
 }

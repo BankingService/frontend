@@ -17,12 +17,12 @@ export class TransactionstatementService {
   }
 
   createTransactionRequest(transactionStatement): Observable<any> {
-    console.log(JSON.stringify(transactionStatement))
+    //console.log(JSON.stringify(transactionStatement))
     return this.http.post<any>(this.apiUrl + 'transact/', transactionStatement);
   }
 
   createBeneficiaryRequest(beneficiary): Observable<any> {
-    alert(beneficiary);
+    //alert(beneficiary);
     return this.http.post<any>(this.apiUrl + 'addBeneficiary/',beneficiary);
   }
 

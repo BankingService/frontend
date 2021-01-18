@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 
 @Component({
@@ -8,20 +8,19 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
   styleUrls: ['./admin-dash-board.component.css']
 })
 export class AdminDashBoardComponent implements OnInit {
-  customers:any=[]
-  constructor( private service:AdminServiceService, private router :  Router) { }
+  customers: any = []
+  constructor(private service: AdminServiceService, private router: Router) { }
 
-  viewdets(refid)
-  {
-    console.log(refid)
-  this.router.navigate(['/customerdetailsadmin',{refid}]);
+  viewdets(refid) {
+    // console.log(refid)
+    this.router.navigate(['/customerdetailsadmin', { refid }]);
   }
 
-
- loadPending(){
-  this.service.getPending().subscribe((data: {}) => { this.customers = data})
+  loadPending() {
+    this.service.getPending().subscribe((data: {}) => { this.customers = data })
   }
-   adminName:string
+  adminName: string
+
   ngOnInit() {
 
     this.adminName = sessionStorage.getItem('adminName');

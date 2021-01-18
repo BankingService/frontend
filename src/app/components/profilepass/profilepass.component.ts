@@ -6,6 +6,7 @@ import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { ProfilePassword } from 'src/app/dtoClass/profile-password';
 import { Profilecheck } from 'src/app/dtoClass/profilecheck';
 import { UserService } from 'src/app/services/user.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-profilepass',
@@ -65,16 +66,18 @@ export class ProfilepassComponent implements OnInit {
 
     this.profilecheck = new ProfilePassword(sessionStorage.customerId,adminformobj.value.profilePassword)
     console.log(this.profilecheck)
-    // this.router.navigate(['useraccount'])
+    //this.router.navigate(['useraccount'])
     this.service.verifyProfile(this.profilecheck).subscribe(response =>
    {  //alert(JSON.stringify(response));
       if(response.status=='SUCCESS'){
+        // alert("in success")
         this.message=response.message;
       this.router.navigate(['useraccount']);
       }
       else{
       this.message = response.message;
-      alert("password incorrect")
+      swal("Invalid Profile Password","", "warning");
+      // alert("password incorrect")
     }
     })
 }

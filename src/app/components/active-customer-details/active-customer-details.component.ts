@@ -8,19 +8,18 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
   styleUrls: ['./active-customer-details.component.css']
 })
 export class ActiveCustomerDetailsComponent implements OnInit {
-  custdetails: any=[]
-  constructor(private service: AdminServiceService, private route: ActivatedRoute, private router:Router) { }
+  custdetails: any = []
+  constructor(private service: AdminServiceService, private route: ActivatedRoute, private router: Router) { }
 
-  cid:string
+  cid: string
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => { this.cid = params['cid'] });
     this.loadAccepted()
   }
-  loadAccepted(){
-    this.service.getAcceptedById(this.cid)
-    .subscribe((data: {}) => { 
-      this.custdetails.push(data) 
+  loadAccepted() {
+    this.service.getAcceptedById(this.cid).subscribe((data: {}) => {
+      this.custdetails.push(data)
     }
     )
   }

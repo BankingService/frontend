@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { json } from '@rxweb/reactive-form-validators';
-
+import swal from 'sweetalert';
 import { Transaction } from 'src/app/dtoClass/transaction';
 
 import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
@@ -129,7 +129,8 @@ export class ImpsComponent implements OnInit {
       })
     }
     else {
-      alert("invalid otp");
+      // alert("invalid otp");
+      swal("Invalid OTP","", "warning");
       this.route.navigated=false;
       this.route.navigate(['imps']);
     }
@@ -141,7 +142,7 @@ export class ImpsComponent implements OnInit {
     this.transaction.getTransactionOtp(sessionStorage.getItem('customerId')).subscribe(response => {
 
       this.otpMessage = response.message
-      alert(this.otpMessage)
+      //alert(this.otpMessage)
     })
   }
 

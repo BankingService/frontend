@@ -74,12 +74,12 @@ form:FormGroup
   ngOnInit() {
   
 
-    this.form = this.formBuilder.group({
+     this.form = this.formBuilder.group({
       title: new FormControl('',Validators.required),
       firstName: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      middleName: new FormControl(''),
+      middleName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.compose([
         Validators.required
       ])),

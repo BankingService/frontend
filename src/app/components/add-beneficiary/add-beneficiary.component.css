@@ -1,32 +1,27 @@
  .error-message {
-    color: red;
-  }
+     color: red;
+ }
  
-
-
-.frm{
-    margin:auto;
-    border-style: groove;
-    width: 70vh;
-}
-
-.input{
-    display: flex;
-    border-bottom: groove;
-    padding:15px;
-    
-}
-
-#selector {
-    width:35vh;
-}
-
-#value {
-    width:35vh;
-
-}
-
-a{
-    padding-right:10px;
-}
-
+ .frm {
+     margin: auto;
+     border-style: groove;
+     width: 70vh;
+ }
+ 
+ .input {
+     display: flex;
+     border-bottom: groove;
+     padding: 15px;
+ }
+ 
+ #selector {
+     width: 35vh;
+ }
+ 
+ #value {
+     width: 35vh;
+ }
+ 
+ a {
+     padding-right: 10px;
+ }

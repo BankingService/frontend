@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Session } from 'protractor';
-import { CreateAccount } from 'src/app/modelClass/create-account';
 import { Customeraddress } from 'src/app/modelClass/customeraddress';
-import { Customerdocs } from 'src/app/modelClass/customerdocs';
 import { Customerinfo } from 'src/app/modelClass/customerinfo';
-import { ImageDocs } from 'src/app/modelClass/image-docs';
 import { CustomerserviceService } from 'src/app/services/customerservice.service';
+import swal from 'sweetalert';
+
 @Component({
   selector: 'app-create-account',
   templateUrl: './create-account.component.html',
@@ -16,16 +14,21 @@ import { CustomerserviceService } from 'src/app/services/customerservice.service
 export class CreateAccountComponent implements OnInit {
 
   form: FormGroup;
-
   refId: string;
   msg: string;
   country: string = "India"
-
+ 
+  today1 = new Date();
+  date = new Date();
+  dd = String(this.today1.getDate()).padStart(2, '0');
+  mm = String(this.today1.getMonth() + 1).padStart(2, '0'); //January is 0!
+  yyyy = this.today1.getFullYear();
+  today = this.yyyy + "-" + this.mm + "-" + this.dd;
 
 
   error_messages = {
     'title': [
-      { type: 'required', message: 'title is required.' }
+      { type: 'required', message: 'Title is required.' }
     ],
 
     'otp': [
@@ -37,23 +40,24 @@ export class CreateAccountComponent implements OnInit {
       { type: 'required', message: 'First Name is required.' },
       { type: 'minlength', message: 'length too small' },
       { type: 'maxlength', message: 'length exceeds limit' },
-      { type: 'pattern', message: 'firstname is not in valid format(use only letters and spaces)' }
+      { type: 'pattern', message: 'FirstName is not in valid format(use only letters and spaces)' }
     ],
-    'middleName':[
+    'middleName': [
       { type: 'minlength', message: 'length too small' },
-      { type: 'maxlength', message: 'length exceeds limit' }
+      { type: 'maxlength', message: 'length exceeds limit' },
+      { type: 'pattern', message: 'MiddleName is not in valid format(use only letters and spaces)' }
     ],
     'lastName': [
       { type: 'required', message: 'Last Name is required.' },
       { type: 'minlength', message: 'length too small' },
       { type: 'maxlength', message: 'length exceeds limit' },
-      { type: 'pattern', message: 'lastname is not in valid format(use only letters and spaces)' }
+      { type: 'pattern', message: 'LastName is not in valid format(use only letters and spaces)' }
     ],
     'fatherName': [
       { type: 'required', message: 'Father Name is required.' },
       { type: 'minlength', message: 'length too small' },
       { type: 'maxlength', message: 'length exceeds limit' },
-      { type: 'pattern', message: 'fathername is not in valid format(use only letters and spaces)' }
+      { type: 'pattern', message: 'FatherName is not in valid format(use only letters and spaces)' }
     ],
     'mobileNumber': [
       { type: 'required', message: 'Mobile Number is required.' },
@@ -81,7 +85,7 @@ export class CreateAccountComponent implements OnInit {
     ],
 
     'dateOfBirth': [
-      { type: 'required', message: 'dob is required' }
+      { type: 'required', message: 'Enter valid DOB' }
     ],
 
     'cAddressLine1': [
@@ -94,7 +98,7 @@ export class CreateAccountComponent implements OnInit {
       { type: 'minlength', message: 'length too small' },
       { type: 'maxlength', message: 'length exceeds limit' }
     ],
-    'cLandMark':[
+    'cLandMark': [
       { type: 'minlength', message: 'length too small' },
       { type: 'maxlength', message: 'length exceeds limit' }
     ],
@@ -130,7 +134,7 @@ export class CreateAccountComponent implements OnInit {
       { type: 'minlength', message: 'length too small' },
       { type: 'maxlength', message: 'length exceeds limit' }
     ],
-    'pLandMark':[
+    'pLandMark': [
       { type: 'minlength', message: 'length too small' },
       { type: 'maxlength', message: 'length exceeds limit' }
     ],
@@ -145,17 +149,17 @@ export class CreateAccountComponent implements OnInit {
       { type: 'maxlength', message: 'enter valid pincode' },
       { type: 'pattern', message: 'pincode is not in valid format(use only number)' }
     ],
-    'occupationType':[
+    'occupationType': [
       { type: 'required', message: 'Pincode is required.' },
       { type: 'minlength', message: 'length too small' },
       { type: 'maxlength', message: 'length exceeds limit' }
     ],
-    'sourceOfIncome':[
+    'sourceOfIncome': [
       { type: 'required', message: 'Pincode is required.' },
       { type: 'minlength', message: 'length too small' },
       { type: 'maxlength', message: 'length exceeds limit' }
     ],
-    'grossAnnualIncome':[
+    'grossAnnualIncome': [
       { type: 'minlength', message: 'length too small' },
       { type: 'maxlength', message: 'length exceeds limit' },
       { type: 'pattern', message: 'Income is not in valid format(use only number)' }
@@ -179,9 +183,10 @@ export class CreateAccountComponent implements OnInit {
         Validators.pattern('^[a-zA-Z\\s]*$')
       ])),
 
-      middleName: new FormControl('',Validators.compose([
+      middleName: new FormControl('', Validators.compose([
         Validators.minLength(1),
-        Validators.maxLength(30)
+        Validators.maxLength(30),
+        Validators.pattern('^[a-zA-Z\\s]*$')
       ])),
 
       lastName: new FormControl('', Validators.compose([
@@ -209,7 +214,7 @@ export class CreateAccountComponent implements OnInit {
         Validators.required,
         Validators.minLength(5),
         Validators.maxLength(30),
-        Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
+        Validators.pattern("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$")
       ])),
 
       aadharCardNo: new FormControl('', Validators.compose([
@@ -239,7 +244,7 @@ export class CreateAccountComponent implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(30)
       ])),
-      cLandMark: new FormControl('',Validators.compose([
+      cLandMark: new FormControl('', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(30)
       ])),
@@ -272,7 +277,7 @@ export class CreateAccountComponent implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(30)
       ])),
-      pLandMark: new FormControl('',Validators.compose([
+      pLandMark: new FormControl('', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(30)
       ])),
@@ -293,84 +298,69 @@ export class CreateAccountComponent implements OnInit {
         Validators.maxLength(6),
         Validators.pattern('^[0-9]*$')
       ])),
-      occupationType: new FormControl('',Validators.compose([
+      occupationType: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(30)
       ])),
-      sourceOfIncome: new FormControl('',Validators.compose([
+      sourceOfIncome: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(30)
       ])),
-      grossAnnualIncome: new FormControl('',Validators.compose([
+      grossAnnualIncome: new FormControl('', Validators.compose([
         Validators.minLength(4),
         Validators.maxLength(30),
         Validators.pattern('^[0-9]*$')
       ])),
-      otp:new FormControl(''),
-      checkBox:new FormControl('',Validators.requiredTrue)
-
-      
+      otp: new FormControl(''),
+      checkBox: new FormControl('', Validators.requiredTrue)
     });
 
   }
 
-flag:boolean=false;
+  flag: boolean = false;
 
-  getOtp(id)
-{  this.flag=true;
-  this.custservice.verifyEmailOtp(id).subscribe(response=>{
-    this.recOtp=response.message 
-    alert(this.recOtp)
-  })
-}
+  getOtp(id) {
+    this.flag = true;
+    this.custservice.verifyEmailOtp(id).subscribe(response => {
+      this.recOtp = response.message
+      //alert(this.recOtp)
+    })
+  }
 
   customerRequest: Customerinfo;
   customerRequestAddress: Customeraddress;
+  mailId: string
+  view(createCustomerFormObj) {
+    // console.log(createCustomerFormObj.value.otp)
+    if (this.recOtp == createCustomerFormObj.value.otp) {
+      this.customerRequestAddress = new Customeraddress(createCustomerFormObj.value.cAddressLine1, createCustomerFormObj.value.pAddressLine1,
+        createCustomerFormObj.value.cAddressLine2, createCustomerFormObj.value.pAddressLine2, createCustomerFormObj.value.cLandMark,
+        createCustomerFormObj.value.pLandMark, createCustomerFormObj.value.cCity, createCustomerFormObj.value.pCity, createCustomerFormObj.value.cState,
+        createCustomerFormObj.value.pState, createCustomerFormObj.value.cPincode, createCustomerFormObj.value.pPincode);
 
- 
- mailId:string
-  view(createCustomerFormObj){
+      this.customerRequest = new Customerinfo(null, createCustomerFormObj.value.title, createCustomerFormObj.value.firstName, createCustomerFormObj.value.middleName,
+        createCustomerFormObj.value.lastName, createCustomerFormObj.value.fatherName, createCustomerFormObj.value.mobileNumber, createCustomerFormObj.value.emailId,
+        createCustomerFormObj.value.aadharCardNo, createCustomerFormObj.value.dateOfBirth, createCustomerFormObj.value.occupationType, createCustomerFormObj.value.sourceOfIncome,
+        createCustomerFormObj.value.grossAnnualIncome, createCustomerFormObj.value.panNumber, this.customerRequestAddress);
 
-    console.log(createCustomerFormObj.value.otp)
-
-    if(this.recOtp==createCustomerFormObj.value.otp){
-
- 
-   
-    this.customerRequestAddress=new Customeraddress(createCustomerFormObj.value.cAddressLine1,createCustomerFormObj.value.pAddressLine1,
-      createCustomerFormObj.value.cAddressLine2, createCustomerFormObj.value.pAddressLine2,createCustomerFormObj.value.cLandMark,
-      createCustomerFormObj.value.pLandMark,createCustomerFormObj.value.cCity,createCustomerFormObj.value.pCity,createCustomerFormObj.value.cState,
-      createCustomerFormObj.value.pState,createCustomerFormObj.value.cPincode,createCustomerFormObj.value.pPincode);
-
-    this.customerRequest=new Customerinfo(null,createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
-      createCustomerFormObj.value.lastName,createCustomerFormObj.value.fatherName,createCustomerFormObj.value.mobileNumber,createCustomerFormObj.value.emailId,
-      createCustomerFormObj.value.aadharCardNo,createCustomerFormObj.value.dateOfBirth,createCustomerFormObj.value.occupationType,createCustomerFormObj.value.sourceOfIncome,
-      createCustomerFormObj.value.grossAnnualIncome,createCustomerFormObj.value.panNumber,this.customerRequestAddress);
-   
-      this.mailId= String(createCustomerFormObj.value.emailId)
-
-    
-    this.addcustomerrequest(this.customerRequest)
+      this.mailId = String(createCustomerFormObj.value.emailId)
+      this.addcustomerrequest(this.customerRequest)
     }
-    else{
-      alert("invalid otp")
+    else {
+      // alert("invalid otp")
+      swal("Invalid OTP", "", "error");
     }
-
   }
+
   addcustomerrequest(customerrequest) {
-    console.log(JSON.stringify(customerrequest))
-    this.custservice.createCustomerRequest(customerrequest).subscribe(response =>
-      {  //alert(JSON.stringify(response));
-           let cid=response.id;
-           let msg=response.msg;
-           alert(msg),
-           
-         this.router.navigate(['createaccount2',{cid}]);
-         })
+    // console.log(JSON.stringify(customerrequest))
+    this.custservice.createCustomerRequest(customerrequest).subscribe(response => {  //alert(JSON.stringify(response));
+      let cid = response.id;
+      let msg = response.msg;
+      // alert(msg),
+        this.router.navigate(['createaccount2', { cid }]);
+    })
   }
-
-  
-
 }
