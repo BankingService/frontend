@@ -1,4 +1,6 @@
 <app-home-nav-bar></app-home-nav-bar>
+<br><br>
+
 <div class="container">
     <h3>Open a Savings Account</h3>
 </div>
@@ -8,14 +10,15 @@
         <form [formGroup]="form" (ngSubmit)="upload(form)">
 
             <div class="form-group row">
-                <label  class="col-sm-5 col-form-label" style="font-size: large;"><b>Please Upload the below mentioned documents</b></label>
+                <label class="col-sm-5 col-form-label" style="font-size: large;"><b>Please Upload the below mentioned
+                        documents</b></label>
             </div>
 
 
             <div class="form-group row">
-                <p>Aadhar file:<span
-                    style="color:red">*</span></p>
-                <input class="form-control btn-light" type="file" id="Aadharcard" (change)="onFileChange($event)" name="Aadharcardimage" formControlName="aadharCard">
+                <p>Aadhar file:<span style="color:red">*</span></p>
+                <input class="form-control btn-light" type="file" id="Aadharcard" (change)="onFileChange($event)"
+                    name="Aadharcardimage" formControlName="aadharCard">
             </div><br>
 
             <div class="error-messages">
@@ -29,9 +32,9 @@
 
 
             <div class="form-group row">
-                <p>PAN card file:<span
-                    style="color:red">*</span></p>
-                <input class="form-control btn-light" type="file" id="pancard" name="pancardimage" (change)="onFileChange2($event)" formControlName="panCard">
+                <p>PAN card file:<span style="color:red">*</span></p>
+                <input class="form-control btn-light" type="file" id="pancard" name="pancardimage"
+                    (change)="onFileChange2($event)" formControlName="panCard">
             </div><br>
             <div class="error-messages">
                 <ng-container *ngFor="let error of error_messages.panCard">
@@ -45,14 +48,14 @@
 
             <div>
                 <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;"
-                    >Submit</button>
-                    <!-- [disabled]="form.invalid" -->
+                    [disabled]="form.invalid">Submit</button>
+                <!-- [disabled]="form.invalid" -->
             </div><br><br><br><br><br>
             <div> </div>
 
 
-            </form>
-            </div>
-            </div>
+        </form>
+    </div>
+</div>
 
-
+<app-home-footer></app-home-footer>

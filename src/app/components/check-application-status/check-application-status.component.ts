@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
-import { CustomerserviceService } from 'src/app/services/customerservice.service';
+import swal from 'sweetalert';
+
 
 @Component({
   selector: 'app-check-application-status',
@@ -45,7 +46,7 @@ export class CheckApplicationStatusComponent implements OnInit {
   view(id) {
     
     this.service.getAppStatus(id).subscribe(response => {
-      this.message = response.message;
+      swal(response.message, "", "info");
     })
   }
 }

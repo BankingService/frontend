@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { Register } from 'src/app/modelClass/register';
 import { UserService } from 'src/app/services/user.service';
 import { OtpserviceService } from 'src/app/services/otpservice.service';
+import swal from 'sweetalert';
 // import { RxwebValidators } from '@rxweb/reactive-form-validators';
 @Component({
   selector: 'app-register',
@@ -20,9 +20,9 @@ export class RegisterComponent implements OnInit {
   error_messages = {
     'customerId': [
       { type: 'required', message: 'Customer Id is required.' },
-      { type: 'minlength', message: 'password length must be atleast 8' },
-      { type: 'maxlength', message: 'password length must be less than 8' },
-      { type: 'pattern', message: 'password must consist only number'}
+      { type: 'minlength', message: 'Customer Id  must be 8 digits' },
+      { type: 'maxlength', message: 'Customer Id  must be 8 digits' },
+      { type: 'pattern', message: 'Customer Id must consist only numbers'}
     ],
 
     // 'otp': [
@@ -181,13 +181,14 @@ export class RegisterComponent implements OnInit {
      //   alert(JSON.stringify(response));
         console.log(response)
         if (response.status == 'SUCCESS') {
-
+          swal("Registerd Successfully!!", "", "success");
           this.message = response.message;
           alert(this.message)
           this.router.navigate(['home']);
         }
         else
           this.message = response.message;
+          swal("Error Occured", response.message, "error");
         alert(this.message)
       })
     }
@@ -202,13 +203,20 @@ export class RegisterComponent implements OnInit {
   flag: boolean = false;
 
   getOtp(id) {
-    this.flag = true;
+    
     console.log(id);
     // let temp=id;
     // sessionStorage.setItem('initialId',temp)
     this.otpservice.getOtpForRegistration(id).subscribe(response => {
-      alert(response.message)
+      //alert(response.message)
       this.message = response.message;
+      
+      if(response.status=="FAILURE"){
+        swal(response.message, "", "warning");
+      }else{
+        this.flag = true;
+        alert(response.message)
+      }
     })
   }
 

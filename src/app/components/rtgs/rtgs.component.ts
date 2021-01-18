@@ -87,7 +87,7 @@ export class RtgsComponent implements OnInit {
       ]))
     })
     this.transaction.createNoOfBeneficiariesRequest(sessionStorage.getItem('customerId')).subscribe((data:{})=>{
-     alert(data);
+    //  alert(data);
       this.toAccountNo.push(data);
     })
   }
@@ -104,7 +104,8 @@ export class RtgsComponent implements OnInit {
   
     this.transaction.createTransactionRequest(this.transactionRequest).subscribe((data:{}) =>
       {  
-           this. msg=JSON.stringify(data);
+           this.msg=JSON.stringify(data);
+           console.log(this.msg)
            sessionStorage.setItem('data',JSON.stringify(data));
          this.route.navigate(['transsuccess']);
          })

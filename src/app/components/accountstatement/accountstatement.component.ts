@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import swal from 'sweetalert';
  
 import { Transactiondatetime } from 'src/app/dtoClass/transactiondatetime';
 import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
@@ -30,11 +31,18 @@ export class AccountstatementComponent implements OnInit {
     ],
   }
 
-  today = new Date().toJSON().split('T')[0];
+//  today = new Date().toJSON().split('T')[0];
+today1=new Date();
+     date=new Date();
+      dd = String(this.today1.getDate()).padStart(2, '0');
+       mm = String(this.today1.getMonth() + 1).padStart(2, '0'); //January is 0!
+       yyyy = this.today1.getFullYear();
+      today=this.yyyy+"-"+this.mm+"-"+this.dd;
  
-  constructor(private router: Router, private transaction: TransactionstatementService, private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private transaction: TransactionstatementService, private formBuilder: FormBuilder) {}
 
   ngOnInit() {
+
     this.form = this.formBuilder.group({
  
       fromdate: new FormControl('', Validators.compose([
@@ -57,11 +65,11 @@ export class AccountstatementComponent implements OnInit {
     todate = todate + "T23:59:59.999";
     this.transactiondatetime = new Transactiondatetime(fromdate, todate, sessionStorage.getItem('accountNumber'));
     this.transaction.createTransactionStatementRequest(this.transactiondatetime).subscribe((data: {}) => {
-      alert(JSON.stringify(data));
+    //  alert(JSON.stringify(data));
       this.transactionstatement.push(data);
       this.transactionstatement[0].sort(this.GetSortOrder("date"));
       if (this.transactionstatement[0].length == 0) {
-        alert("no transactions are done within selected date")
+        swal("Oops!!", "No Records Found", "info");
       }
       else {
         this.flag = true;

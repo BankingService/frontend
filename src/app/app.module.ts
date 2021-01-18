@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import swal from 'sweetalert';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +10,6 @@ import { ImpsComponent } from './components/imps/imps.component';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotuseridComponent } from './components/forgotuserid/forgotuserid.component';
 import { CheckApplicationStatusComponent } from './components/check-application-status/check-application-status.component';
-import { TransactionHistoryComponent } from './components/transaction-history/transaction-history.component';
 import { AddBeneficiaryComponent } from './components/add-beneficiary/add-beneficiary.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TransactionSuccessfulComponent } from './components/transaction-successful/transaction-successful.component';
@@ -48,6 +48,7 @@ import { BlockedCustomerDetailsComponent } from './Components/blocked-customer-d
 import { SetNewPasswordBeforeLoginComponent } from './components/set-new-password-before-login/set-new-password-before-login.component';
 import { OtpserviceService } from './services/otpservice.service';
 import { SplashscreenComponent } from './components/splashscreen/splashscreen.component';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
 
 
 //import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
@@ -63,7 +64,6 @@ import { SplashscreenComponent } from './components/splashscreen/splashscreen.co
     LoginComponent,
     ForgotuseridComponent,
     CheckApplicationStatusComponent,
-    TransactionHistoryComponent,
     AddBeneficiaryComponent,
     TransactionSuccessfulComponent,
     AdminDashBoardComponent,
@@ -94,7 +94,8 @@ import { SplashscreenComponent } from './components/splashscreen/splashscreen.co
     BlockedCustomersComponent,
     BlockedCustomerDetailsComponent,
     SetNewPasswordBeforeLoginComponent,
-    SplashscreenComponent
+    SplashscreenComponent,
+    AboutUsComponent
     
   ],
   imports: [

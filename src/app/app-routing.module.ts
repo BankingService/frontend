@@ -1,6 +1,7 @@
 import { registerLocaleData } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
 import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
 import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
 import { ActiveCustomerDetailsComponent } from './Components/active-customer-details/active-customer-details.component';
@@ -32,7 +33,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { RtgsComponent } from './components/rtgs/rtgs.component';
 import { SetNewPasswordBeforeLoginComponent } from './components/set-new-password-before-login/set-new-password-before-login.component';
 import { SetnewpasswordComponent } from './components/setnewpassword/setnewpassword.component';
-import { TransactionHistoryComponent } from './components/transaction-history/transaction-history.component';
 import { TransactionSuccessfulComponent } from './components/transaction-successful/transaction-successful.component';
 import { UserAccountComponent } from './components/user-account/user-account.component';
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
@@ -64,8 +64,8 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent ,canActivate:[UserAuthGaurdService]},
   { path: 'register', component: RegisterComponent },
   { path: 'setnewpassword', component: SetnewpasswordComponent },
+  { path: 'aboutus' , component:AboutUsComponent},
   { path: 'setnewpasswordbeforelogin', component: SetNewPasswordBeforeLoginComponent },
-  { path: 'transhistory', component: TransactionHistoryComponent },
   { path: 'transsuccess', component: TransactionSuccessfulComponent ,canActivate:[UserAuthGaurdService]},
   { path: 'useraccount', component: UserAccountComponent },
   { path:'changedetails', component:ChangeuserdetailsComponent},

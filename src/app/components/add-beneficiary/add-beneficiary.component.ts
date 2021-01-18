@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { json, RxwebValidators } from '@rxweb/reactive-form-validators';
 import { Beneficiary } from 'src/app/modelClass/beneficiary';
 import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
+import swal from 'sweetalert';
 
 
 @Component({
@@ -111,6 +112,7 @@ export class AddBeneficiaryComponent implements OnInit {
       console.log(JSON.stringify(this.beneficiary));
       this.service.createBeneficiaryRequest(this.beneficiary).subscribe(response => {
        // alert(JSON.stringify(response))
+       swal("Beneficiary added Successfully!!", "", "success");
        this.router.navigate(['fundtransfer'])
       })
     }

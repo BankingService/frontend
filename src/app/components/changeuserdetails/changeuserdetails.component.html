@@ -88,7 +88,7 @@
                         style="color:red">*</span></label>
                 <div class="col-sm-6">
                     <input type="tel" class="form-control" id="mobileNumber" formControlName="mobileNumber"
-                        value={{cust.mobileNumber}}>
+                        >
                 </div>
             </div>
             <div class="error-messages">
@@ -400,7 +400,7 @@
             <div>
                 <button class="btn btn-light" type="button" (click)="redirectTo()"
                     style="margin: 20px; width: 100px;">Back</button> 
-                <button type="btn btn-success" class="form-control btn btn-primary"
+                <button type="btn btn-success" class="form-control btn btn-primary" [disabled]="form.invalid"
                     style="margin: 20px; width: 100px;">Submit</button> <!-- [disabled]="form.invalid" -->
             </div><br><br><br><br><br>
             <div> </div>
