@@ -30,7 +30,7 @@ export class NeftComponent implements OnInit {
       ],
     'amount': [
       { type: 'required', message: 'amount is required.' },
-      { type: 'minlength', message: 'minimum of 100 should be sent' },
+      { type: 'minlength', message: 'minimum of 1 should be sent' },
       { type: 'maxlength', message: 'amount cannot be transfered please reduce transfering amount' },
       { type: 'pattern', message: 'amount must number' }
     ],
@@ -68,7 +68,7 @@ export class NeftComponent implements OnInit {
       ])),
       amount: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(3),
+        Validators.minLength(1),
         Validators.maxLength(13),
         Validators.pattern("[0-9]*")
       ])),

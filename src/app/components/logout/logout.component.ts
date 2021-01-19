@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LogoutService } from 'src/app/services/logout.service';
 import swal from 'sweetalert';
+import { DashboardsidebarComponent } from '../dashboardsidebar/dashboardsidebar.component';
+import { UserdashboardComponent } from '../userdashboard/userdashboard.component';
 
 
 @Component({
@@ -10,7 +12,7 @@ import swal from 'sweetalert';
   templateUrl: './logout.component.html',
   styleUrls: ['./logout.component.css']
 })
-export class LogoutComponent implements OnInit {
+export class LogoutComponent implements OnInit{
 
   logoutTimer;
   lastlog:any=[]
@@ -52,8 +54,10 @@ this.lastlogin();
     })
 
   }
- ngOnDestroy(){
+  ngOnDestroy(){
     clearTimeout(this.logoutTimer)
- }
+
+  }
+
   
 }

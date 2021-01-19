@@ -31,7 +31,7 @@ export class ImpsComponent implements OnInit {
       ],
     'amount': [
       { type: 'required', message: 'amount is required.' },
-      { type: 'minlength', message: 'minimum of 100 should be sent' },
+      { type: 'minlength', message: 'minimum of 1 should be sent' },
       { type: 'maxlength', message: 'amount cannot be transfered please reduce transfering amount' },
       { type: 'pattern', message: 'amount must number' }
     ],
@@ -69,7 +69,7 @@ export class ImpsComponent implements OnInit {
       ])),
       amount: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(3),
+        Validators.minLength(1),
         Validators.maxLength(13),
         Validators.pattern("[0-9]*")
       ])),
@@ -142,7 +142,7 @@ export class ImpsComponent implements OnInit {
     this.transaction.getTransactionOtp(sessionStorage.getItem('customerId')).subscribe(response => {
 
       this.otpMessage = response.message
-      //alert(this.otpMessage)
+      // alert(this.otpMessage)   
     })
   }
 

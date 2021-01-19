@@ -15,11 +15,11 @@ export class CreateAccount2Component implements OnInit {
   error_messages = {
     'aadharCard': [
       { type: 'required', message: 'please upload aadhar' },
-      { type: 'pattern', message: 'please upload in these formats(jpg,png,pdf)' }
+      { type: 'pattern', message: 'please upload in these formats(jpg, jpeg)' }
     ],
     'panCard': [
       { type: 'required', message: 'please upload pan' },
-      { type: 'pattern', message: 'please upload in these formats(jpg,png,pdf)' }
+      { type: 'pattern', message: 'please upload in these formats(jpg, jpeg)' }
     ],
     
   }
@@ -34,11 +34,11 @@ export class CreateAccount2Component implements OnInit {
     this.form = this.formBuilder.group({
       aadharCard: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^.*\.(jpg|jpeg|JPG|gif|GIF|doc|DOC|pdf|PDF)$')
+        Validators.pattern('^.*\.(jpg|jpeg|JPG)$')
       ])),
       panCard: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^.*\.(jpg|jpeg|JPG|gif|GIF|doc|DOC|pdf|PDF)$')
+        Validators.pattern('^.*\.(jpg|jpeg|JPG)$')
       ])),
       
   }); 

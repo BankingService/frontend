@@ -465,7 +465,7 @@
                 </div>
 
                 <div>
-                    <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="form.invalid">Next</button>
+                    <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="form.invalid || (today<form.value.dateOfBirth)">Next</button>
                     <!-- [disabled]="form.invalid" -->
                 </div><br><br><br><br><br>
                 <div> </div>
